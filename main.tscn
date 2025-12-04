@@ -39,5 +39,10 @@ text = "Connect"
 layout_mode = 2
 text = "Exec"
 
+[node name="BtTest" type="Button" parent="ConnectionInfo"]
+layout_mode = 2
+text = "Test"
+
 [connection signal="pressed" from="ConnectionInfo/BtConnect" to="." method="_on_bt_connect_pressed"]
 [connection signal="pressed" from="ConnectionInfo/BtExec" to="." method="_on_bt_exec_pressed"]
+[connection signal="pressed" from="ConnectionInfo/BtTest" to="." method="_on_bt_test_pressed"]

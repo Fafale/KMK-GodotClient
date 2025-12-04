@@ -4,6 +4,8 @@ extends Control
 @onready var node_port = $ConnectionInfo/LineditPORT
 @onready var node_slot = $ConnectionInfo/LineditSLOT
 
+var kmk: KMK = KMK.new()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -36,4 +38,19 @@ func _on_bt_exec_pressed() -> void:
 	# return the loc id (access by name), or -1 if don't exist
 	print(data.get_loc_id("Unlock: The Cloaked Entrance"))
 	
+	pass # Replace with function body.
+
+
+func _on_bt_test_pressed() -> void:
+	if false:
+		kmk.load_doors(Archipelago.conn.slot_data["area_games"])
+		kmk.load_keys(Archipelago.conn.slot_data["selected_magic_keys"])
+	
+	if true:
+		kmk.print_keys()
+	
+	if false:
+		kmk.request_received_keys()
+		
+	#kmk.print_keys()
 	pass # Replace with function body.
