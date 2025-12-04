@@ -1,0 +1,19 @@
+connect + get slot data
+    - read/list all doors
+    - read/list all keys (+ locks in doors)
+        - all keys in selected_magic_keys are items, used_magic_keys are in logic
+
+check received items
+    - unlocks should unlock doors
+        - show objectives + constraints
+    - keys should be removed from "locks"
+        - make doors unlockable
+
+send checks
+    - confirm button for objectives
+    - send checks via location name
+
+make goal area
+    - check for availability (unlocked goal area + enough items to unlock it)
+    - show objective
+    - goal the game
