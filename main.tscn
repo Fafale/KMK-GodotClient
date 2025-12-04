@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://bahgi7ail7unc"]
+
+[ext_resource type="Script" uid="uid://tfnj2g3f6jvg" path="res://main.gd" id="1_ig7tw"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ig7tw")
+
+[node name="ConnectionInfo" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LineditIP" type="LineEdit" parent="ConnectionInfo"]
+layout_mode = 2
+text = "localhost"
+placeholder_text = "IP"
+
+[node name="LineditPORT" type="LineEdit" parent="ConnectionInfo"]
+layout_mode = 2
+text = "38281"
+placeholder_text = "PORT"
+
+[node name="LineditSLOT" type="LineEdit" parent="ConnectionInfo"]
+layout_mode = 2
+text = "Player1"
+placeholder_text = "Slot"
+
+[node name="BtConnect" type="Button" parent="ConnectionInfo"]
+layout_mode = 2
+text = "Connect"
+
+[node name="BtExec" type="Button" parent="ConnectionInfo"]
+layout_mode = 2
+text = "Exec"
+
+[connection signal="pressed" from="ConnectionInfo/BtConnect" to="." method="_on_bt_connect_pressed"]
+[connection signal="pressed" from="ConnectionInfo/BtExec" to="." method="_on_bt_exec_pressed"]
