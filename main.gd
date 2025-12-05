@@ -42,11 +42,11 @@ func _on_bt_exec_pressed() -> void:
 
 
 func _on_bt_test_pressed() -> void:
-	if false:
-		kmk.load_doors(Archipelago.conn.slot_data["area_games"])
-		kmk.load_keys(Archipelago.conn.slot_data["selected_magic_keys"])
-	
 	if true:
+		kmk.init_areas(Archipelago.conn.slot_data)
+		# kmk.load_keys(Archipelago.conn.slot_data["selected_magic_keys"])
+	
+	if false:
 		kmk.print_keys()
 	
 	if false:

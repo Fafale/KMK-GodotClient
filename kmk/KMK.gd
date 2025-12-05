@@ -1,23 +1,35 @@
 class_name KMK
 
-var available_doors: Array[String] = []
+var available_areas: Dictionary[String, KMKArea] = {}
 var available_keys:  Array[String] = []
 
 var received_keys: Array[String] = []
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
 
-# Save doors names in available_doors
-func load_doors(dict: Dictionary) -> void:
-	available_doors.clear()
+# Initialize areas in available_areas
+func init_areas(slot_data: Dictionary) -> void:
+	available_areas.clear()
 	
-	for door in dict.keys():
-		available_doors.append(door)
+	for area_name in slot_data["area_games"].keys():
+		var area = KMKArea.new()
+		area.game = slot_data["area_games"][area_name]
+		
+		if slot_data["lock_combinations"][area_name] != null:
+			area.locks.assign(slot_data["lock_combinations"][area_name])
+		
+		area.constraints.assign(slot_data["area_game_optional_constraints"][area_name])
+		
+		for trial_name in slot_data["area_trials"][area_name]:
+			var trial = KMKTrial.new()
+			
+			trial.objective = slot_data["area_trial_game_objectives"][trial_name]
+			
+			area.trials[trial_name] = trial
+		
+		available_areas[area_name] = area
 
 # Save keys names in available_keys
-func load_keys(list: Array) -> void:
+func init_keys(list: Array) -> void:
 	available_keys.clear()
 	
 	for key in list:
@@ -51,6 +63,3 @@ func assign_received_keys(item_list: Array[NetworkItem]):
 		if item_name in available_keys:
 			received_keys.append(item_name)
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

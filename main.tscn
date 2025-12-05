@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bahgi7ail7unc"]
+[gd_scene load_steps=3 format=3 uid="uid://bahgi7ail7unc"]
 
 [ext_resource type="Script" uid="uid://tfnj2g3f6jvg" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dpedwu11pqqyy" path="res://kmk/ui/trial_info.tscn" id="2_0xm2m"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -43,6 +44,135 @@ text = "Exec"
 layout_mode = 2
 text = "Test"
 
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 159.0
+offset_right = 959.0
+offset_bottom = 159.0
+
+[node name="HBoxAreaCenter" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxAreaCenter"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="AreaList" type="VBoxContainer" parent="HBoxAreaCenter/ScrollContainer"]
+custom_minimum_size = Vector2(750, 0)
+layout_mode = 2
+
+[node name="Area" type="VBoxContainer" parent="HBoxAreaCenter/ScrollContainer/AreaList"]
+custom_minimum_size = Vector2(750, 60)
+layout_mode = 2
+
+[node name="LabelTitle" type="RichTextLabel" parent="HBoxAreaCenter/ScrollContainer/AreaList/Area"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][b][font_size=22]The 'Area Name' Door[/font_size][/b][/center]
+[color=gray][font_size=14][center]Area constraints should be shown here,
+If there are multiple they'll show in different lines[/center][/font_size][/color]"
+fit_content = true
+
+[node name="TrialInfo" parent="HBoxAreaCenter/ScrollContainer/AreaList/Area" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="TrialInfo2" parent="HBoxAreaCenter/ScrollContainer/AreaList/Area" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="LabelName" parent="HBoxAreaCenter/ScrollContainer/AreaList/Area/TrialInfo2" index="0"]
+text = "Beyond the Area Name door: This is another trial"
+
+[node name="Objective" parent="HBoxAreaCenter/ScrollContainer/AreaList/Area/TrialInfo2/HBoxInfo" index="2"]
+text = "Here will be the description of the trial, the objective itself.
+In cases with multiple lines, they'll show like this."
+
+[node name="Area3" type="VBoxContainer" parent="HBoxAreaCenter/ScrollContainer/AreaList"]
+custom_minimum_size = Vector2(750, 60)
+layout_mode = 2
+
+[node name="LabelTitle" type="RichTextLabel" parent="HBoxAreaCenter/ScrollContainer/AreaList/Area3"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][b][font_size=22]The 'Area Name' Door[/font_size][/b][/center]
+[color=gray][font_size=14][center]Area constraints should be shown here,
+If there are multiple they'll show in different lines[/center][/font_size][/color]"
+fit_content = true
+
+[node name="TrialInfo" parent="HBoxAreaCenter/ScrollContainer/AreaList/Area3" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="TrialInfo2" parent="HBoxAreaCenter/ScrollContainer/AreaList/Area3" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="LabelName" parent="HBoxAreaCenter/ScrollContainer/AreaList/Area3/TrialInfo2" index="0"]
+text = "Beyond the Area Name door: This is another trial"
+
+[node name="Objective" parent="HBoxAreaCenter/ScrollContainer/AreaList/Area3/TrialInfo2/HBoxInfo" index="2"]
+text = "Here will be the description of the trial, the objective itself.
+In cases with multiple lines, they'll show like this."
+
+[node name="Area2" type="VBoxContainer" parent="HBoxAreaCenter/ScrollContainer/AreaList"]
+custom_minimum_size = Vector2(750, 60)
+layout_mode = 2
+
+[node name="LabelTitle" type="RichTextLabel" parent="HBoxAreaCenter/ScrollContainer/AreaList/Area2"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][b][font_size=22]The 'Area Name' Door[/font_size][/b][/center]
+[color=gray][font_size=14][center]Area constraints should be shown here,
+If there are multiple they'll show in different lines[/center][/font_size][/color]"
+fit_content = true
+
+[node name="TrialInfo" parent="HBoxAreaCenter/ScrollContainer/AreaList/Area2" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="TrialInfo2" parent="HBoxAreaCenter/ScrollContainer/AreaList/Area2" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="LabelName" parent="HBoxAreaCenter/ScrollContainer/AreaList/Area2/TrialInfo2" index="0"]
+text = "Beyond the Area Name door: This is another trial"
+
+[node name="Objective" parent="HBoxAreaCenter/ScrollContainer/AreaList/Area2/TrialInfo2/HBoxInfo" index="2"]
+text = "Here will be the description of the trial, the objective itself.
+In cases with multiple lines, they'll show like this."
+
+[node name="TrialInfo3" parent="HBoxAreaCenter/ScrollContainer/AreaList/Area2" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="LabelName" parent="HBoxAreaCenter/ScrollContainer/AreaList/Area2/TrialInfo3" index="0"]
+text = "Beyond the Area Name door: This is another trial"
+
+[node name="Objective" parent="HBoxAreaCenter/ScrollContainer/AreaList/Area2/TrialInfo3/HBoxInfo" index="2"]
+text = "Here will be the description of the trial, the objective itself.
+In cases with multiple lines, they'll show like this."
+
+[node name="TrialInfo4" parent="HBoxAreaCenter/ScrollContainer/AreaList/Area2" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="LabelName" parent="HBoxAreaCenter/ScrollContainer/AreaList/Area2/TrialInfo4" index="0"]
+text = "Beyond the Area Name door: This is another trial"
+
+[node name="Objective" parent="HBoxAreaCenter/ScrollContainer/AreaList/Area2/TrialInfo4/HBoxInfo" index="2"]
+text = "Here will be the description of the trial, the objective itself.
+In cases with multiple lines, they'll show like this."
+
 [connection signal="pressed" from="ConnectionInfo/BtConnect" to="." method="_on_bt_connect_pressed"]
 [connection signal="pressed" from="ConnectionInfo/BtExec" to="." method="_on_bt_exec_pressed"]
 [connection signal="pressed" from="ConnectionInfo/BtTest" to="." method="_on_bt_test_pressed"]
+
+[editable path="HBoxAreaCenter/ScrollContainer/AreaList/Area/TrialInfo2"]
+[editable path="HBoxAreaCenter/ScrollContainer/AreaList/Area3/TrialInfo2"]
+[editable path="HBoxAreaCenter/ScrollContainer/AreaList/Area2/TrialInfo2"]
+[editable path="HBoxAreaCenter/ScrollContainer/AreaList/Area2/TrialInfo3"]
+[editable path="HBoxAreaCenter/ScrollContainer/AreaList/Area2/TrialInfo4"]

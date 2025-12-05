@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dpedwu11pqqyy"]
+
+[node name="TrialInfo" type="VBoxContainer"]
+
+[node name="LabelName" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 18
+text = "Beyond the Area Name door: Trial/Location name here"
+
+[node name="HBoxInfo" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="BtConfirm" type="CheckButton" parent="HBoxInfo"]
+layout_mode = 2
+
+[node name="BtComplete" type="Button" parent="HBoxInfo"]
+layout_mode = 2
+size_flags_vertical = 4
+disabled = true
+text = "Complete"
+
+[node name="Objective" type="Label" parent="HBoxInfo"]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+text = "Here will be the description of the trial, the objective itself."
+autowrap_mode = 2
