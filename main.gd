@@ -18,6 +18,7 @@ func _process(delta: float) -> void:
 
 func _on_bt_connect_pressed() -> void:
 	Archipelago.ap_connect(node_ip.text, node_port.text, node_slot.text)
+	Archipelago.connected.connect(kmk.initialize_kmk.unbind(1))
 
 
 func _on_bt_exec_pressed() -> void:

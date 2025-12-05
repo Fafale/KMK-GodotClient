@@ -6,6 +6,18 @@ var available_keys:  Array[String] = []
 var received_keys: Array[String] = []
 
 
+func initialize_kmk(conn: ConnectionInfo) -> void:
+	# initialize functions
+	init_areas(conn.slot_data)
+	init_keys(conn.slot_data["selected_magic_keys"])
+	
+	conn.obtained_item.connect(update_after_item)
+	pass
+
+# Called
+func update_after_item(received_item: NetworkItem) -> void:
+	pass
+
 # Initialize areas in available_areas
 func init_areas(slot_data: Dictionary) -> void:
 	available_areas.clear()
@@ -47,7 +59,7 @@ func print_keys() -> void:
 func request_received_keys() -> void:
 	received_keys.clear()
 	
-	Archipelago.conn.connect("refresh_items", assign_received_keys)
+	Archipelago.conn.refresh_items.connect(assign_received_keys)
 	
 	print("enviando o comando")
 	Archipelago.send_command("Sync", {})
