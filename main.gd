@@ -1,24 +1,23 @@
 extends Control
 
-@onready var node_ip = $ConnectionInfo/LineditIP
-@onready var node_port = $ConnectionInfo/LineditPORT
-@onready var node_slot = $ConnectionInfo/LineditSLOT
+@onready var node_ip = $Connection/WindowConnection/LineditIP
+@onready var node_port = $Connection/WindowConnection/LineditPORT
+@onready var node_slot = $Connection/WindowConnection/LineditSLOT
 
 var kmk: KMK = KMK.new()
 
+@onready var client_node = $Client
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	Archipelago.connected.connect(kmk.initialize_kmk.unbind(1))
+	kmk.client_node = client_node
 
 
 func _on_bt_connect_pressed() -> void:
+	$Connection.hide()
+	
 	Archipelago.ap_connect(node_ip.text, node_port.text, node_slot.text)
-	Archipelago.connected.connect(kmk.initialize_kmk.unbind(1))
 
 
 func _on_bt_exec_pressed() -> void:
@@ -43,14 +42,14 @@ func _on_bt_exec_pressed() -> void:
 
 
 func _on_bt_test_pressed() -> void:
-	if true:
+	if false:
 		kmk.init_areas(Archipelago.conn.slot_data)
 		# kmk.load_keys(Archipelago.conn.slot_data["selected_magic_keys"])
 	
 	if false:
 		kmk.print_keys()
 	
-	if false:
+	if true:
 		kmk.request_received_keys()
 		
 	#kmk.print_keys()

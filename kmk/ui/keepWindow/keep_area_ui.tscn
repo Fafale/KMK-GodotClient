@@ -1,26 +1,34 @@
-[gd_scene format=3 uid="uid://dx0cfe2goqjfv"]
+[gd_scene load_steps=2 format=3 uid="uid://dx0cfe2goqjfv"]
 
-[node name="keepAreaUI" type="VBoxContainer"]
+[ext_resource type="Script" uid="uid://dij6t1m8b7a2r" path="res://kmk/ui/keepWindow/keep_area_ui.gd" id="1_sjwyt"]
+
+[node name="keepAreaUI" type="HBoxContainer"]
 custom_minimum_size = Vector2(750, 60)
-alignment = 1
+offset_right = 780.0
+offset_bottom = 84.0
+script = ExtResource("1_sjwyt")
 
-[node name="LabelTitle" type="RichTextLabel" parent="."]
-layout_mode = 2
-bbcode_enabled = true
-text = "[center][b][font_size=22]The 'Area Name' Door[/font_size][/b][/center]"
-fit_content = true
-
-[node name="HBox" type="HBoxContainer" parent="."]
-layout_mode = 2
-
-[node name="BtUnlock" type="Button" parent="HBox"]
+[node name="BtUnlock" type="Button" parent="."]
+custom_minimum_size = Vector2(81, 0)
 layout_mode = 2
 size_flags_vertical = 4
 disabled = true
 text = "Unlock"
 
-[node name="LabelKeys" type="Label" parent="HBox"]
-custom_minimum_size = Vector2(680, 0)
+[node name="LabelTitle" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
-text = "Required keys: Name of First Key, Name of second key, Name of third key, in case of many keys they'll show in other lines like this"
-autowrap_mode = 3
+bbcode_enabled = true
+text = "[b]The 'Area Name' Door[/b]"
+fit_content = true
+vertical_alignment = 1
+
+[node name="LabelKeys" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(536, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Needs:[/b] Long name of key 1, Long name of key 2, Long name of key 3, Long name of key 4 "
+fit_content = true
+vertical_alignment = 1
+
+[connection signal="pressed" from="BtUnlock" to="." method="_on_bt_unlock_pressed"]
