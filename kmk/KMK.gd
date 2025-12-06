@@ -11,11 +11,12 @@ func initialize_kmk(conn: ConnectionInfo) -> void:
 	init_areas(conn.slot_data)
 	init_keys(conn.slot_data["selected_magic_keys"])
 	
-	conn.obtained_item.connect(update_after_item)
+	conn.obtained_item.connect(kmk_after_obtained_item)
+	conn.refresh_items.connect(kmk_after_refresh_items)
 	pass
 
 # Called
-func update_after_item(received_item: NetworkItem) -> void:
+func kmk_after_refresh_items(received_item: NetworkItem) -> void:
 	pass
 
 # Initialize areas in available_areas
@@ -59,12 +60,9 @@ func print_keys() -> void:
 func request_received_keys() -> void:
 	received_keys.clear()
 	
-	Archipelago.conn.refresh_items.connect(assign_received_keys)
-	
-	print("enviando o comando")
 	Archipelago.send_command("Sync", {})
 
-func assign_received_keys(item_list: Array[NetworkItem]):
+func kmk_after_obtained_item(item_list: Array[NetworkItem]):
 	var data: DataCache = Archipelago.conn.get_gamedata_for_player()
 	
 	print("chegou aq")

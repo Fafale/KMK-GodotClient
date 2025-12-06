@@ -18,6 +18,10 @@ config/icon="res://icon.svg"
 
 Archipelago="*res://godot_ap/autoloads/archipelago.tscn"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

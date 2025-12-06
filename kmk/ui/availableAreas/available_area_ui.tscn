@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://g5dvyk5xpeoe"]
+
+[node name="availableAreaUI" type="VBoxContainer"]
+custom_minimum_size = Vector2(750, 60)
+
+[node name="LabelTitle" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][b][font_size=22]The 'Area Name' Door[/font_size][/b][/center]
+[color=gray][font_size=14][center]Area constraints should be shown here,
+If there are multiple they'll show in different lines[/center][/font_size][/color]"
+fit_content = true

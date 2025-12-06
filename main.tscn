@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bahgi7ail7unc"]
+[gd_scene load_steps=5 format=3 uid="uid://bahgi7ail7unc"]
 
 [ext_resource type="Script" uid="uid://tfnj2g3f6jvg" path="res://main.gd" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://dpedwu11pqqyy" path="res://kmk/ui/trial_info.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://dpedwu11pqqyy" path="res://kmk/ui/availableAreas/trial_info_ui.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://g5dvyk5xpeoe" path="res://kmk/ui/availableAreas/available_area_ui.tscn" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://dx0cfe2goqjfv" path="res://kmk/ui/keepWindow/keep_area_ui.tscn" id="3_h2yge"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -12,7 +14,106 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ig7tw")
 
-[node name="UnlockedAreas" type="HBoxContainer" parent="."]
+[node name="Connection" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WindowConnection" type="VBoxContainer" parent="Connection"]
+layout_mode = 0
+offset_right = 72.0
+offset_bottom = 206.0
+
+[node name="LineditIP" type="LineEdit" parent="Connection/WindowConnection"]
+layout_mode = 2
+text = "localhost"
+placeholder_text = "IP"
+
+[node name="LineditPORT" type="LineEdit" parent="Connection/WindowConnection"]
+layout_mode = 2
+text = "38281"
+placeholder_text = "PORT"
+
+[node name="LineditSLOT" type="LineEdit" parent="Connection/WindowConnection"]
+layout_mode = 2
+text = "Player1"
+placeholder_text = "Slot"
+
+[node name="BtConnect" type="Button" parent="Connection/WindowConnection"]
+layout_mode = 2
+text = "Connect"
+
+[node name="BtExec" type="Button" parent="Connection/WindowConnection"]
+layout_mode = 2
+text = "Exec"
+
+[node name="BtTest" type="Button" parent="Connection/WindowConnection"]
+layout_mode = 2
+text = "Test"
+
+[node name="Client" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Selector" type="VBoxContainer" parent="Client"]
+layout_mode = 0
+anchor_right = 0.15625
+anchor_bottom = 1.0
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BtMain" type="Button" parent="Client/Selector"]
+custom_minimum_size = Vector2(0, 92)
+layout_mode = 2
+disabled = true
+text = "Archipelago"
+
+[node name="BtKeep" type="Button" parent="Client/Selector"]
+custom_minimum_size = Vector2(0, 92)
+layout_mode = 2
+text = "Keymaster's Keep"
+
+[node name="BtAvailable" type="Button" parent="Client/Selector"]
+custom_minimum_size = Vector2(0, 92)
+layout_mode = 2
+text = "Available Trials"
+
+[node name="BtCompleted" type="Button" parent="Client/Selector"]
+custom_minimum_size = Vector2(0, 92)
+layout_mode = 2
+text = "Completed Trials"
+
+[node name="BtShop" type="Button" parent="Client/Selector"]
+custom_minimum_size = Vector2(0, 92)
+layout_mode = 2
+disabled = true
+text = "Shops"
+
+[node name="BtHint" type="Button" parent="Client/Selector"]
+custom_minimum_size = Vector2(0, 92)
+layout_mode = 2
+disabled = true
+text = "Hints"
+
+[node name="Windows" type="Control" parent="Client"]
+layout_mode = 1
+anchor_left = 0.15625
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="WindowKeep" type="HBoxContainer" parent="Client/Windows"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,158 +123,42 @@ grow_vertical = 2
 alignment = 1
 metadata/_edit_group_ = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="UnlockedAreas"]
+[node name="Scroll" type="ScrollContainer" parent="Client/Windows/WindowKeep"]
 layout_mode = 2
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="AreaList" type="VBoxContainer" parent="UnlockedAreas/ScrollContainer"]
+[node name="List" type="VBoxContainer" parent="Client/Windows/WindowKeep/Scroll"]
+layout_mode = 2
+
+[node name="keepAreaUI" parent="Client/Windows/WindowKeep/Scroll/List" instance=ExtResource("3_h2yge")]
+layout_mode = 2
+
+[node name="WindowAvailable" type="HBoxContainer" parent="Client/Windows"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Scroll" type="ScrollContainer" parent="Client/Windows/WindowAvailable"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="List" type="VBoxContainer" parent="Client/Windows/WindowAvailable/Scroll"]
 custom_minimum_size = Vector2(750, 0)
 layout_mode = 2
 
-[node name="Area" type="VBoxContainer" parent="UnlockedAreas/ScrollContainer/AreaList"]
-custom_minimum_size = Vector2(750, 60)
+[node name="availableAreaUI" parent="Client/Windows/WindowAvailable/Scroll/List" instance=ExtResource("2_1bvp3")]
 layout_mode = 2
 
-[node name="LabelTitle" type="RichTextLabel" parent="UnlockedAreas/ScrollContainer/AreaList/Area"]
-custom_minimum_size = Vector2(0, 30)
-layout_mode = 2
-bbcode_enabled = true
-text = "[center][b][font_size=22]The 'Area Name' Door[/font_size][/b][/center]
-[color=gray][font_size=14][center]Area constraints should be shown here,
-If there are multiple they'll show in different lines[/center][/font_size][/color]"
-fit_content = true
-
-[node name="TrialInfo" parent="UnlockedAreas/ScrollContainer/AreaList/Area" instance=ExtResource("2_0xm2m")]
+[node name="TrialInfo" parent="Client/Windows/WindowAvailable/Scroll/List/availableAreaUI" instance=ExtResource("2_0xm2m")]
 layout_mode = 2
 
-[node name="TrialInfo2" parent="UnlockedAreas/ScrollContainer/AreaList/Area" instance=ExtResource("2_0xm2m")]
-layout_mode = 2
-
-[node name="LabelName" parent="UnlockedAreas/ScrollContainer/AreaList/Area/TrialInfo2" index="0"]
-text = "Beyond the Area Name door: This is another trial"
-
-[node name="Objective" parent="UnlockedAreas/ScrollContainer/AreaList/Area/TrialInfo2/HBoxInfo" index="2"]
-text = "Here will be the description of the trial, the objective itself.
-In cases with multiple lines, they'll show like this."
-
-[node name="Area3" type="VBoxContainer" parent="UnlockedAreas/ScrollContainer/AreaList"]
-custom_minimum_size = Vector2(750, 60)
-layout_mode = 2
-
-[node name="LabelTitle" type="RichTextLabel" parent="UnlockedAreas/ScrollContainer/AreaList/Area3"]
-custom_minimum_size = Vector2(0, 30)
-layout_mode = 2
-bbcode_enabled = true
-text = "[center][b][font_size=22]The 'Area Name' Door[/font_size][/b][/center]
-[color=gray][font_size=14][center]Area constraints should be shown here,
-If there are multiple they'll show in different lines[/center][/font_size][/color]"
-fit_content = true
-
-[node name="TrialInfo" parent="UnlockedAreas/ScrollContainer/AreaList/Area3" instance=ExtResource("2_0xm2m")]
-layout_mode = 2
-
-[node name="TrialInfo2" parent="UnlockedAreas/ScrollContainer/AreaList/Area3" instance=ExtResource("2_0xm2m")]
-layout_mode = 2
-
-[node name="LabelName" parent="UnlockedAreas/ScrollContainer/AreaList/Area3/TrialInfo2" index="0"]
-text = "Beyond the Area Name door: This is another trial"
-
-[node name="Objective" parent="UnlockedAreas/ScrollContainer/AreaList/Area3/TrialInfo2/HBoxInfo" index="2"]
-text = "Here will be the description of the trial, the objective itself.
-In cases with multiple lines, they'll show like this."
-
-[node name="Area2" type="VBoxContainer" parent="UnlockedAreas/ScrollContainer/AreaList"]
-custom_minimum_size = Vector2(750, 60)
-layout_mode = 2
-
-[node name="LabelTitle" type="RichTextLabel" parent="UnlockedAreas/ScrollContainer/AreaList/Area2"]
-custom_minimum_size = Vector2(0, 30)
-layout_mode = 2
-bbcode_enabled = true
-text = "[center][b][font_size=22]The 'Area Name' Door[/font_size][/b][/center]
-[color=gray][font_size=14][center]Area constraints should be shown here,
-If there are multiple they'll show in different lines[/center][/font_size][/color]"
-fit_content = true
-
-[node name="TrialInfo" parent="UnlockedAreas/ScrollContainer/AreaList/Area2" instance=ExtResource("2_0xm2m")]
-layout_mode = 2
-
-[node name="TrialInfo2" parent="UnlockedAreas/ScrollContainer/AreaList/Area2" instance=ExtResource("2_0xm2m")]
-layout_mode = 2
-
-[node name="LabelName" parent="UnlockedAreas/ScrollContainer/AreaList/Area2/TrialInfo2" index="0"]
-text = "Beyond the Area Name door: This is another trial"
-
-[node name="Objective" parent="UnlockedAreas/ScrollContainer/AreaList/Area2/TrialInfo2/HBoxInfo" index="2"]
-text = "Here will be the description of the trial, the objective itself.
-In cases with multiple lines, they'll show like this."
-
-[node name="TrialInfo3" parent="UnlockedAreas/ScrollContainer/AreaList/Area2" instance=ExtResource("2_0xm2m")]
-layout_mode = 2
-
-[node name="LabelName" parent="UnlockedAreas/ScrollContainer/AreaList/Area2/TrialInfo3" index="0"]
-text = "Beyond the Area Name door: This is another trial"
-
-[node name="Objective" parent="UnlockedAreas/ScrollContainer/AreaList/Area2/TrialInfo3/HBoxInfo" index="2"]
-text = "Here will be the description of the trial, the objective itself.
-In cases with multiple lines, they'll show like this."
-
-[node name="TrialInfo4" parent="UnlockedAreas/ScrollContainer/AreaList/Area2" instance=ExtResource("2_0xm2m")]
-layout_mode = 2
-
-[node name="LabelName" parent="UnlockedAreas/ScrollContainer/AreaList/Area2/TrialInfo4" index="0"]
-text = "Beyond the Area Name door: This is another trial"
-
-[node name="Objective" parent="UnlockedAreas/ScrollContainer/AreaList/Area2/TrialInfo4/HBoxInfo" index="2"]
-text = "Here will be the description of the trial, the objective itself.
-In cases with multiple lines, they'll show like this."
-
-[node name="ConnectionInfo" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="LineditIP" type="LineEdit" parent="ConnectionInfo"]
-layout_mode = 2
-text = "localhost"
-placeholder_text = "IP"
-
-[node name="LineditPORT" type="LineEdit" parent="ConnectionInfo"]
-layout_mode = 2
-text = "38281"
-placeholder_text = "PORT"
-
-[node name="LineditSLOT" type="LineEdit" parent="ConnectionInfo"]
-layout_mode = 2
-text = "Player1"
-placeholder_text = "Slot"
-
-[node name="BtConnect" type="Button" parent="ConnectionInfo"]
-layout_mode = 2
-text = "Connect"
-
-[node name="BtExec" type="Button" parent="ConnectionInfo"]
-layout_mode = 2
-text = "Exec"
-
-[node name="BtTest" type="Button" parent="ConnectionInfo"]
-layout_mode = 2
-text = "Test"
-
-[node name="CenterContainer" type="CenterContainer" parent="."]
-layout_mode = 0
-offset_left = 235.0
-offset_top = 159.0
-offset_right = 959.0
-offset_bottom = 159.0
-
-[connection signal="pressed" from="ConnectionInfo/BtConnect" to="." method="_on_bt_connect_pressed"]
-[connection signal="pressed" from="ConnectionInfo/BtExec" to="." method="_on_bt_exec_pressed"]
-[connection signal="pressed" from="ConnectionInfo/BtTest" to="." method="_on_bt_test_pressed"]
-
-[editable path="UnlockedAreas/ScrollContainer/AreaList/Area/TrialInfo2"]
-[editable path="UnlockedAreas/ScrollContainer/AreaList/Area3/TrialInfo2"]
-[editable path="UnlockedAreas/ScrollContainer/AreaList/Area2/TrialInfo2"]
-[editable path="UnlockedAreas/ScrollContainer/AreaList/Area2/TrialInfo3"]
-[editable path="UnlockedAreas/ScrollContainer/AreaList/Area2/TrialInfo4"]
+[connection signal="pressed" from="Connection/WindowConnection/BtConnect" to="." method="_on_bt_connect_pressed"]
+[connection signal="pressed" from="Connection/WindowConnection/BtExec" to="." method="_on_bt_exec_pressed"]
+[connection signal="pressed" from="Connection/WindowConnection/BtTest" to="." method="_on_bt_test_pressed"]
