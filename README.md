@@ -5,6 +5,8 @@ It uses the [GodotAP](https://github.com/EmilyV99/GodotAP) library to handle con
 
 This client doesn't store any info locally, so you need to keep connected to the server for it to work. However, this means it's easier to make it able to connect via Browser and Mobile.
 
+Web client: https://fafale.itch.io/kmk-godotclient
+
 # What you should know before using it:
 This is just an attempt to make a client that's able to connect via mobile/browser, and is my first project involving Archipelago, so there's probably things to optimize and to make better.
 
