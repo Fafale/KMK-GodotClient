@@ -203,18 +203,21 @@ layout_mode = 2
 text = "archipelago.gg"
 placeholder_text = "Server Address"
 alignment = 1
+max_length = 50
 
 [node name="LineditPORT" type="LineEdit" parent="Connection/WindowConnection"]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 placeholder_text = "Server Port"
 alignment = 1
+max_length = 10
 
 [node name="LineditSLOT" type="LineEdit" parent="Connection/WindowConnection"]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 placeholder_text = "Slot Name"
 alignment = 1
+max_length = 16
 
 [node name="BtConnect" type="Button" parent="Connection/WindowConnection"]
 custom_minimum_size = Vector2(300, 100)
