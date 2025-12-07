@@ -1,0 +1,631 @@
+{
+	"area_game_optional_constraints":{
+		"The Concealed Threshold":[
+			
+		],
+		"The Arcane Passage":[
+			
+		],
+		"The Enigmatic Threshold":[
+			"Cannot equip the following items: Experimental Hexplate, Fimbulwinter, Nashor\\'s Tooth, Frozen Heart, Heartsteel"
+		],
+		"The Whispered Threshold":[
+			
+		],
+		"The Unknown Arch":[
+			
+		],
+		"The Lost Portal":[
+			"Cannot equip the following items: Liandry\\'s Torment, Trailblazer, Lord Dominik\\'s Regards, Dawncore, Sterak\\'s Gage"
+		],
+		"The Faded Gateway":[
+			"Cannot equip the following items: Horizon Focus, Blackfire Torch, Spear of Shojin, Umbral Glaive, Experimental Hexplate"
+		],
+		"The Ghosted Passageway":[
+			"Cannot use the Domination rune path"
+		],
+		"The Unseen Door":[
+			
+		],
+		"The Cloaked Entrance":[
+			
+		],
+		"The Secret Vault":[
+			"Limited to the following roles: Top Lane, Support, Mid Lane"
+		],
+		"The Unmarked Vault":[
+			"Cannot use the Precision rune path"
+		],
+		"The Secret Archway":[
+			"Cannot equip the following items: Essence Reaver, Bloodthirster, Manamune, Statikk Shiv, Voltaic Cyclosword"
+		],
+		"The Cryptic Vault":[
+			"Limited to the following roles: Top Lane, Jungler, Mid Lane"
+		],
+		"The Faint Doorway":[
+			
+		],
+		"The Phantom Vault":[
+			
+		]
+	},
+	"area_games":{
+		"The Concealed Threshold":"Archipelago Multiworld Randomizer",
+		"The Arcane Passage":"Archipelago Multiworld Randomizer",
+		"The Enigmatic Threshold":"League of Legends",
+		"The Whispered Threshold":"Archipelago Multiworld Randomizer",
+		"The Unknown Arch":"Archipelago Multiworld Randomizer",
+		"The Lost Portal":"League of Legends",
+		"The Faded Gateway":"League of Legends",
+		"The Ghosted Passageway":"League of Legends",
+		"The Unseen Door":"Archipelago Multiworld Randomizer",
+		"The Cloaked Entrance":"Archipelago Multiworld Randomizer",
+		"The Secret Vault":"League of Legends",
+		"The Unmarked Vault":"League of Legends",
+		"The Secret Archway":"League of Legends",
+		"The Cryptic Vault":"League of Legends",
+		"The Faint Doorway":"Archipelago Multiworld Randomizer",
+		"The Phantom Vault":"Archipelago Multiworld Randomizer"
+	},
+	"area_trial_game_objectives":{
+		"Beyond the Concealed Threshold: Trial of the Wendigo":"[Hints: 15%  Release: Off] Get 2 bingo(s) on a 8x8 APBingo board in a multiworld randomizer with The Witness, Hollow Knight",
+		"Beyond the Concealed Threshold: Trial of the Dragon":"[Hints: 14%  Release: Off] Get 3 bingo(s) on a 8x8 APBingo board in a multiworld randomizer with Super Mario 64, Yacht Dice, Factorio",
+		"Beyond the Concealed Threshold: Trial of the Yeti":"[Hints: 0%  Release: Off] Get 2 bingo(s) on a 4x4 APBingo board in a multiworld randomizer with Castlevania, Faxanadu, Mario & Luigi: Superstar Saga",
+		"Beyond the Concealed Threshold: Trial of the Troll":"[Hints: 14%  Release: Off] Blackout a 7x7 APBingo board in a multiworld randomizer with Heretic, The Legend of Zelda: The Wind Waker, Sid Meier\\'s Civilization VI",
+		"Beyond the Concealed Threshold: Trial of the Sasquatch":"[Hints: 6%  Release: On] Complete a multiworld randomizer with Undertale, Raft, VVVVVV",
+		"Along the Arcane Passage: Trial of the Troll":"[Hints: 23%  Release: Off] Get 5 bingo(s) on a 3x3 APBingo board in a multiworld randomizer with Meritous, The Legend of Zelda: A Link to the Past, Rogue Legacy",
+		"Along the Arcane Passage: Trial of the Banshee":"[Hints: 24%] Complete a solo randomizer with The Messenger",
+		"Along the Arcane Passage: Trial of the Yeti":"[Hints: 1%  Release: Off] Get 6 bingo(s) on a 5x5 APBingo board in a multiworld randomizer with Mega Man 2, Mega Man Battle Network 3 Blue",
+		"Along the Arcane Passage: Trial of the Pegasus":"[Hints: 13%  Release: Off] Blackout a 7x7 APBingo board in a multiworld randomizer with Inscryption, Mega Man Battle Network 3 Blue, DLC Quest",
+		"Along the Arcane Passage: Trial of the Dragon":"[Hints: 3%  Release: On] Complete a multiworld randomizer with Lingo, Terraria, A Hat in Time",
+		"Beyond the Enigmatic Threshold: Trial of the Yeti":"Win a match with Lulu",
+		"Beyond the Enigmatic Threshold: Trial of the Harpy":"Win a match with Zed with one of the following equipped: Echoes of Helia, Frozen Heart, Blackfire Torch",
+		"Beyond the Enigmatic Threshold: Trial of the Minotaur":"Win a match with Xerath with one of the following equipped: Lich Bane, Locket of the Iron Solari, Experimental Hexplate",
+		"Beyond the Enigmatic Threshold: Trial of the Wendigo":"Win a match with Gangplank using the following rune keystone: First Strike",
+		"Beyond the Enigmatic Threshold: Trial of the Hydra":"Win a match with Shyvana",
+		"Beyond the Enigmatic Threshold: Trial of the Wyvern":"Win a match with Senna",
+		"Beyond the Whispered Threshold: Trial of the Sasquatch":"[Hints: 8%  Release: Off] Get 2 bingo(s) on a 7x7 APBingo board in a multiworld randomizer with ChecksFinder, Castlevania",
+		"Beyond the Whispered Threshold: Trial of the Kraken":"[Hints: 23%  Release: Off] Get 5 bingo(s) on a 4x4 APBingo board in a multiworld randomizer with Bomb Rush Cyberfunk, The Legend of Zelda: A Link to the Past",
+		"Beyond the Whispered Threshold: Trial of the Basilisk":"[Hints: 8%  Release: On] Complete a multiworld randomizer with Muse Dash, The Witness, Aquaria",
+		"Beyond the Whispered Threshold: Trial of the Chimera":"[Hints: 1%  Release: Off] Get 3 bingo(s) on a 4x4 APBingo board in a multiworld randomizer with Terraria, SMZ3, Castlevania: Circle of the Moon",
+		"Beyond the Whispered Threshold: Trial of the Wendigo":"[Hints: 16%  Release: On] Complete a multiworld randomizer with Undertale, Bumper Stickers, Hylics 2",
+		"Beyond the Whispered Threshold: Trial of the Valkyrie":"[Hints: 19%  Release: Off] Complete a multiworld randomizer with Yacht Dice, DLC Quest, Faxanadu",
+		"Beyond the Unknown Arch: Trial of the Basilisk":"[Hints: 16%] Complete a solo randomizer with KINGDOM HEARTS II FINAL MIX",
+		"Beyond the Unknown Arch: Trial of the Harpy":"[Hints: 4%  Release: Off] Complete a multiworld randomizer with Wargroove, Shivers, Terraria",
+		"Beyond the Unknown Arch: Trial of the Sasquatch":"[Hints: 21%  Release: Off] Get 1 bingo(s) on a 3x3 APBingo board in a multiworld randomizer with Wargroove, The Legend of Zelda: The Wind Waker",
+		"Beyond the Unknown Arch: Trial of the Sphinx":"[Hints: 2%  Release: On] Complete a multiworld randomizer with Mega Man 2, Raft",
+		"Beyond the Unknown Arch: Trial of the Direwolf":"[Hints: 21%  Release: Off] Complete a multiworld randomizer with Sonic Adventure 2: Battle, Undertale, Shivers",
+		"Beyond the Unknown Arch: Trial of the Phoenix":"[Hints: 2%  Release: Off] Get 6 bingo(s) on a 4x4 APBingo board in a multiworld randomizer with Hylics 2, Sid Meier\\'s Civilization VI, Risk of Rain 2",
+		"Beyond the Unknown Arch: Trial of the Manticore":"[Hints: 19%  Release: On] Complete a multiworld randomizer with Sid Meier\\'s Civilization VI, The Legend of Zelda: The Wind Waker, Super Mario World 2: Yoshi\\'s Island",
+		"Beyond the Lost Portal: Trial of the Mandrake":"Win a match with Akshan",
+		"Beyond the Lost Portal: Trial of the Valkyrie":"Win a match with Aatrox using the following rune keystone: Press the Attack",
+		"Beyond the Lost Portal: Trial of the Troll":"Win a match with Rengar",
+		"Beyond the Lost Portal: Trial of the Wyvern":"Win a match with Malphite",
+		"Beyond the Lost Portal: Trial of the Sphinx":"Win a match with Rumble",
+		"Beyond the Lost Portal: Trial of the Kraken":"Win a match with Braum using the following rune keystone: Glacial Augment",
+		"Beyond the Lost Portal: Trial of the Basilisk":"Win a match with Smolder",
+		"Beyond the Faded Gateway: Trial of the Griffin":"Win a match with Taric",
+		"Beyond the Faded Gateway: Trial of the Manticore":"Win a match with Trundle",
+		"Beyond the Faded Gateway: Trial of the Kraken":"Win a match with Brand using the following rune keystone: Arcane Comet",
+		"Beyond the Faded Gateway: Trial of the Basilisk":"Win a match with Ivern with one of the following equipped: Frozen Heart, Force of Nature, Banshee\\'s Veil",
+		"Beyond the Faded Gateway: Trial of the Sasquatch":"Win a match with Renata Glasc",
+		"Along the Ghosted Passageway: Trial of the Kraken":"Win a match with Zoe",
+		"Along the Ghosted Passageway: Trial of the Direwolf":"Win a match with Kalista with one of the following equipped: Manamune, Trinity Force, Black Cleaver",
+		"Along the Ghosted Passageway: Trial of the Hydra":"Win a match with Diana",
+		"Along the Ghosted Passageway: Trial of the Mandrake":"Win a match with Olaf using the following rune keystone: Fleet Footwork",
+		"Along the Ghosted Passageway: Trial of the Troll":"Win a match with Twitch",
+		"Along the Ghosted Passageway: Trial of the Sphinx":"Win a match with Poppy using the following rune keystone: Guardian",
+		"Beyond the Unseen Door: Trial of the Valkyrie":"[Hints: 2%  Release: On] Complete a multiworld randomizer with Secret of Evermore, Slay the Spire, Final Fantasy: Mystic Quest",
+		"Beyond the Unseen Door: Trial of the Kraken":"[Hints: 2%] Complete a solo randomizer with Undertale",
+		"Beyond the Unseen Door: Trial of the Cyclops":"[Hints: 24%  Release: On] Complete a multiworld randomizer with Super Mario World 2: Yoshi\\'s Island, Factorio, Bumper Stickers",
+		"Beyond the Unseen Door: Trial of the Sphinx":"[Hints: 8%  Release: Off] Complete a multiworld randomizer with Subnautica, Bomb Rush Cyberfunk",
+		"Beyond the Unseen Door: Trial of the Ogre":"[Hints: 8%  Release: Off] Get 2 bingo(s) on a 9x9 APBingo board in a multiworld randomizer with The Witness, DLC Quest, Saving Princess",
+		"Beyond the Unseen Door: Trial of the Pegasus":"[Hints: 4%  Release: On] Complete a multiworld randomizer with Clique, Dark Souls III, The Witness",
+		"Beyond the Unseen Door: Trial of the Banshee":"[Hints: 4%  Release: Off] Complete a multiworld randomizer with ChecksFinder, Secret of Evermore",
+		"Beyond the Cloaked Entrance: Trial of the Gorgon":"[Hints: 15%  Release: Off] Get 4 bingo(s) on a 10x10 APBingo board in a multiworld randomizer with Super Metroid, Adventure",
+		"Beyond the Cloaked Entrance: Trial of the Giant":"[Hints: 0%  Release: Off] Get 3 bingo(s) on a 7x7 APBingo board in a multiworld randomizer with Dark Souls III, Slay the Spire",
+		"Beyond the Cloaked Entrance: Trial of the Wendigo":"[Hints: 12%] Complete a solo randomizer with ChecksFinder",
+		"Beyond the Cloaked Entrance: Trial of the Troll":"[Hints: 23%  Release: Off] Blackout a 7x7 APBingo board in a multiworld randomizer with Clique, The Legend of Zelda: Ocarina of Time, Super Metroid",
+		"Beyond the Cloaked Entrance: Trial of the Mandrake":"[Hints: 18%  Release: Off] Get 3 bingo(s) on a 9x9 APBingo board in a multiworld randomizer with Mario & Luigi: Superstar Saga, Wargroove",
+		"Beyond the Cloaked Entrance: Trial of the Minotaur":"[Hints: 20%] Complete a solo randomizer with Zork: Grand Inquisitor",
+		"Beyond the Cloaked Entrance: Trial of the Griffin":"[Hints: 100%  Release: On] Complete a multiworld randomizer with The Legend of Zelda: Link\\'s Awakening DX, Super Mario World, The Legend of Zelda: A Link to the Past",
+		"Inside the Secret Vault: Trial of the Wyvern":"Win a match with Nilah using the following rune keystone: Fleet Footwork",
+		"Inside the Secret Vault: Trial of the Cyclops":"Win a match with Singed with one of the following equipped: Ravenous Hydra, Shadowflame, Death\\'s Dance",
+		"Inside the Secret Vault: Trial of the Harpy":"Win a match with Ambessa",
+		"Inside the Secret Vault: Trial of the Kraken":"Win a match with Kai\\'sa using the following rune keystone: Fleet Footwork",
+		"Inside the Secret Vault: Trial of the Troll":"Win a match with Zyra using the following rune keystone: Dark Harvest",
+		"Inside the Secret Vault: Trial of the Chimera":"Win a match with Jinx",
+		"Inside the Unmarked Vault: Trial of the Pegasus":"Win a match with Graves with one of the following equipped: Voltaic Cyclosword, Liandry\\'s Torment, Frozen Heart",
+		"Inside the Unmarked Vault: Trial of the Sphinx":"Win a match with Veigar using the following rune keystone: Lethal Tempo",
+		"Inside the Unmarked Vault: Trial of the Gorgon":"Win a match with Gnar with one of the following equipped: Zeke\\'s Convergence, Imperial Mandate, Liandry\\'s Torment",
+		"Inside the Unmarked Vault: Trial of the Banshee":"Win a match with Lissandra using the following rune keystone: Dark Harvest",
+		"Inside the Unmarked Vault: Trial of the Direwolf":"Win a match with Sejuani",
+		"Inside the Unmarked Vault: Trial of the Minotaur":"Win a match with Vayne",
+		"Inside the Unmarked Vault: Trial of the Kraken":"Win a match with Seraphine with the following boots equipped: Ionian Boots of Lucidity",
+		"Beyond the Secret Archway: Trial of the Hydra":"Win a match with Kha\\'Zix with the following boots equipped: Mercury\\'s Treads",
+		"Beyond the Secret Archway: Trial of the Sphinx":"Win a match with Kai\\'sa using the following rune keystone: Unsealed Spellbook",
+		"Beyond the Secret Archway: Trial of the Ogre":"Win a match with Katarina with the following boots equipped: Sorcerer\\'s Shoes",
+		"Beyond the Secret Archway: Trial of the Cyclops":"Win a match with Samira with the following boots equipped: Symbiotic Soles",
+		"Beyond the Secret Archway: Trial of the Wendigo":"Win a match with Kennen with the following boots equipped: Berserker\\'s Greaves",
+		"Inside the Cryptic Vault: Trial of the Harpy":"Win a match with Rammus",
+		"Inside the Cryptic Vault: Trial of the Ogre":"Win a match with Nunu & Willump",
+		"Inside the Cryptic Vault: Trial of the Kraken":"Win a match with Hwei with one of the following equipped: Rapid Firecannon, Blackfire Torch, Dawncore",
+		"Inside the Cryptic Vault: Trial of the Giant":"Win a match with Xin Zhao",
+		"Inside the Cryptic Vault: Trial of the Chimera":"Win a match with Nunu & Willump with one of the following equipped: Guardian Angel, Essence Reaver, Runaan\\'s Hurricane",
+		"Beyond the Faint Doorway: Trial of the Yeti":"[Hints: 5%  Release: On] Complete a multiworld randomizer with Raft, Hollow Knight",
+		"Beyond the Faint Doorway: Trial of the Griffin":"[Hints: 17%  Release: Off] Get 1 bingo(s) on a 4x4 APBingo board in a multiworld randomizer with The Legend of Zelda: Ocarina of Time, Wargroove, KINGDOM HEARTS II FINAL MIX",
+		"Beyond the Faint Doorway: Trial of the Chimera":"[Hints: 17%] Complete a solo randomizer with Blasphemous",
+		"Beyond the Faint Doorway: Trial of the Sphinx":"[Hints: 8%  Release: Off] Get 1 bingo(s) on a 4x4 APBingo board in a multiworld randomizer with DOOM II, Castlevania",
+		"Beyond the Faint Doorway: Trial of the Wendigo":"[Hints: 1%  Release: On] Complete a multiworld randomizer with Yacht Dice, Aquaria, Pokémon Red and Blue",
+		"Inside the Phantom Vault: Trial of the Valkyrie":"[Hints: 12%  Release: On] Complete a multiworld randomizer with Risk of Rain 2, Dark Souls III",
+		"Inside the Phantom Vault: Trial of the Wyvern":"[Hints: 19%  Release: Off] Complete a multiworld randomizer with VVVVVV, The Legend of Zelda: Ocarina of Time",
+		"Inside the Phantom Vault: Trial of the Phoenix":"[Hints: 100%] Complete a solo randomizer with Aquaria",
+		"Inside the Phantom Vault: Trial of the Giant":"[Hints: 14%  Release: On] Complete a multiworld randomizer with Sid Meier\\'s Civilization VI, Inscryption, Overcooked! 2",
+		"Inside the Phantom Vault: Trial of the Hydra":"[Hints: 11%  Release: Off] Get 4 bingo(s) on a 8x8 APBingo board in a multiworld randomizer with Faxanadu, Sid Meier\\'s Civilization VI",
+		"Inside the Phantom Vault: Trial of the Troll":"[Hints: 23%  Release: Off] Get 1 bingo(s) on a 5x5 APBingo board in a multiworld randomizer with Factorio, Pokémon Red and Blue"
+	},
+	"area_trials":{
+		"The Concealed Threshold":[
+			"Beyond the Concealed Threshold: Trial of the Wendigo",
+			"Beyond the Concealed Threshold: Trial of the Dragon",
+			"Beyond the Concealed Threshold: Trial of the Yeti",
+			"Beyond the Concealed Threshold: Trial of the Troll",
+			"Beyond the Concealed Threshold: Trial of the Sasquatch"
+		],
+		"The Arcane Passage":[
+			"Along the Arcane Passage: Trial of the Troll",
+			"Along the Arcane Passage: Trial of the Banshee",
+			"Along the Arcane Passage: Trial of the Yeti",
+			"Along the Arcane Passage: Trial of the Pegasus",
+			"Along the Arcane Passage: Trial of the Dragon"
+		],
+		"The Enigmatic Threshold":[
+			"Beyond the Enigmatic Threshold: Trial of the Yeti",
+			"Beyond the Enigmatic Threshold: Trial of the Harpy",
+			"Beyond the Enigmatic Threshold: Trial of the Minotaur",
+			"Beyond the Enigmatic Threshold: Trial of the Wendigo",
+			"Beyond the Enigmatic Threshold: Trial of the Hydra",
+			"Beyond the Enigmatic Threshold: Trial of the Wyvern"
+		],
+		"The Whispered Threshold":[
+			"Beyond the Whispered Threshold: Trial of the Sasquatch",
+			"Beyond the Whispered Threshold: Trial of the Kraken",
+			"Beyond the Whispered Threshold: Trial of the Basilisk",
+			"Beyond the Whispered Threshold: Trial of the Chimera",
+			"Beyond the Whispered Threshold: Trial of the Wendigo",
+			"Beyond the Whispered Threshold: Trial of the Valkyrie"
+		],
+		"The Unknown Arch":[
+			"Beyond the Unknown Arch: Trial of the Basilisk",
+			"Beyond the Unknown Arch: Trial of the Harpy",
+			"Beyond the Unknown Arch: Trial of the Sasquatch",
+			"Beyond the Unknown Arch: Trial of the Sphinx",
+			"Beyond the Unknown Arch: Trial of the Direwolf",
+			"Beyond the Unknown Arch: Trial of the Phoenix",
+			"Beyond the Unknown Arch: Trial of the Manticore"
+		],
+		"The Lost Portal":[
+			"Beyond the Lost Portal: Trial of the Mandrake",
+			"Beyond the Lost Portal: Trial of the Valkyrie",
+			"Beyond the Lost Portal: Trial of the Troll",
+			"Beyond the Lost Portal: Trial of the Wyvern",
+			"Beyond the Lost Portal: Trial of the Sphinx",
+			"Beyond the Lost Portal: Trial of the Kraken",
+			"Beyond the Lost Portal: Trial of the Basilisk"
+		],
+		"The Faded Gateway":[
+			"Beyond the Faded Gateway: Trial of the Griffin",
+			"Beyond the Faded Gateway: Trial of the Manticore",
+			"Beyond the Faded Gateway: Trial of the Kraken",
+			"Beyond the Faded Gateway: Trial of the Basilisk",
+			"Beyond the Faded Gateway: Trial of the Sasquatch"
+		],
+		"The Ghosted Passageway":[
+			"Along the Ghosted Passageway: Trial of the Kraken",
+			"Along the Ghosted Passageway: Trial of the Direwolf",
+			"Along the Ghosted Passageway: Trial of the Hydra",
+			"Along the Ghosted Passageway: Trial of the Mandrake",
+			"Along the Ghosted Passageway: Trial of the Troll",
+			"Along the Ghosted Passageway: Trial of the Sphinx"
+		],
+		"The Unseen Door":[
+			"Beyond the Unseen Door: Trial of the Valkyrie",
+			"Beyond the Unseen Door: Trial of the Kraken",
+			"Beyond the Unseen Door: Trial of the Cyclops",
+			"Beyond the Unseen Door: Trial of the Sphinx",
+			"Beyond the Unseen Door: Trial of the Ogre",
+			"Beyond the Unseen Door: Trial of the Pegasus",
+			"Beyond the Unseen Door: Trial of the Banshee"
+		],
+		"The Cloaked Entrance":[
+			"Beyond the Cloaked Entrance: Trial of the Gorgon",
+			"Beyond the Cloaked Entrance: Trial of the Giant",
+			"Beyond the Cloaked Entrance: Trial of the Wendigo",
+			"Beyond the Cloaked Entrance: Trial of the Troll",
+			"Beyond the Cloaked Entrance: Trial of the Mandrake",
+			"Beyond the Cloaked Entrance: Trial of the Minotaur",
+			"Beyond the Cloaked Entrance: Trial of the Griffin"
+		],
+		"The Secret Vault":[
+			"Inside the Secret Vault: Trial of the Wyvern",
+			"Inside the Secret Vault: Trial of the Cyclops",
+			"Inside the Secret Vault: Trial of the Harpy",
+			"Inside the Secret Vault: Trial of the Kraken",
+			"Inside the Secret Vault: Trial of the Troll",
+			"Inside the Secret Vault: Trial of the Chimera"
+		],
+		"The Unmarked Vault":[
+			"Inside the Unmarked Vault: Trial of the Pegasus",
+			"Inside the Unmarked Vault: Trial of the Sphinx",
+			"Inside the Unmarked Vault: Trial of the Gorgon",
+			"Inside the Unmarked Vault: Trial of the Banshee",
+			"Inside the Unmarked Vault: Trial of the Direwolf",
+			"Inside the Unmarked Vault: Trial of the Minotaur",
+			"Inside the Unmarked Vault: Trial of the Kraken"
+		],
+		"The Secret Archway":[
+			"Beyond the Secret Archway: Trial of the Hydra",
+			"Beyond the Secret Archway: Trial of the Sphinx",
+			"Beyond the Secret Archway: Trial of the Ogre",
+			"Beyond the Secret Archway: Trial of the Cyclops",
+			"Beyond the Secret Archway: Trial of the Wendigo"
+		],
+		"The Cryptic Vault":[
+			"Inside the Cryptic Vault: Trial of the Harpy",
+			"Inside the Cryptic Vault: Trial of the Ogre",
+			"Inside the Cryptic Vault: Trial of the Kraken",
+			"Inside the Cryptic Vault: Trial of the Giant",
+			"Inside the Cryptic Vault: Trial of the Chimera"
+		],
+		"The Faint Doorway":[
+			"Beyond the Faint Doorway: Trial of the Yeti",
+			"Beyond the Faint Doorway: Trial of the Griffin",
+			"Beyond the Faint Doorway: Trial of the Chimera",
+			"Beyond the Faint Doorway: Trial of the Sphinx",
+			"Beyond the Faint Doorway: Trial of the Wendigo"
+		],
+		"The Phantom Vault":[
+			"Inside the Phantom Vault: Trial of the Valkyrie",
+			"Inside the Phantom Vault: Trial of the Wyvern",
+			"Inside the Phantom Vault: Trial of the Phoenix",
+			"Inside the Phantom Vault: Trial of the Giant",
+			"Inside the Phantom Vault: Trial of the Hydra",
+			"Inside the Phantom Vault: Trial of the Troll"
+		]
+	},
+	"area_trials_maximum":7.0,
+	"area_trials_minimum":5.0,
+	"artifacts_of_resolve_required":3.0,
+	"artifacts_of_resolve_total":5.0,
+	"game_medley_mode":false,
+	"game_medley_percentage_chance":100.0,
+	"goal":1.0,
+	"goal_game":"<null>",
+	"goal_game_optional_constraints":"<null>",
+	"goal_trial_game_objective":"<null>",
+	"hints_reveal_objectives":false,
+	"include_adult_only_or_unrated_games":false,
+	"include_difficult_objectives":false,
+	"include_modern_console_games":true,
+	"include_time_consuming_objectives":true,
+	"lock_combinations":{
+		"The Concealed Threshold":"<null>",
+		"The Arcane Passage":[
+			"Golden Zephyr Key"
+		],
+		"The Enigmatic Threshold":[
+			"Amber Inferno Key"
+		],
+		"The Mysterious Vault":[
+			"Electric Storm Key"
+		],
+		"The Whispered Threshold":[
+			"Silver Shield Key"
+		],
+		"The Unknown Arch":[
+			"Auric Flash Key",
+			"Bronze Root Key"
+		],
+		"The Lost Portal":[
+			"Sapphire Surge Key",
+			"Verdant Moss Key"
+		],
+		"The Faded Gateway":[
+			"Cobalt Sky Key"
+		],
+		"The Ghosted Passageway":[
+			"Plasma Surge Key",
+			"Crystal Glacier Key",
+			"Bronze Root Key"
+		],
+		"The Secretive Door":[
+			"Ironclad Key",
+			"Bronze Root Key",
+			"Pearlescent Glow Key"
+		],
+		"The Unseen Door":[
+			"Obsidian Wraith Key"
+		],
+		"The Cloaked Entrance":[
+			"Amber Inferno Key"
+		],
+		"The Secret Vault":[
+			"Ivory Drift Key"
+		],
+		"The Unmarked Vault":[
+			"Amber Stone Key"
+		],
+		"The Secret Archway":[
+			"Ironclad Key"
+		],
+		"The Cryptic Vault":[
+			"Amber Inferno Key",
+			"Golden Zephyr Key",
+			"Midnight Abyss Key"
+		],
+		"The Faint Doorway":[
+			"Bronze Root Key",
+			"Midnight Abyss Key",
+			"Aurora Beam Key"
+		],
+		"The Shrouded Portal":[
+			"Electric Storm Key",
+			"Sapphire Surge Key",
+			"Golden Flame Key"
+		],
+		"The Unfathomable Door":[
+			"Aurora Beam Key",
+			"Silver Shield Key"
+		],
+		"The Phantom Vault":[
+			"Obsidian Core Key"
+		]
+	},
+	"lock_magic_keys_maximum":3.0,
+	"lock_magic_keys_minimum":1.0,
+	"magic_keys_required":18.0,
+	"magic_keys_total":30.0,
+	"selected_magic_keys":[
+		"Verdant Moss Key",
+		"Obsidian Core Key",
+		"Icy Cascade Key",
+		"Bronze Root Key",
+		"Golden Zephyr Key",
+		"Copper Bloom Key",
+		"Midnight Abyss Key",
+		"Cobalt Sky Key",
+		"Silver Shield Key",
+		"Silver Breeze Key",
+		"Auric Flash Key",
+		"Pearlescent Glow Key",
+		"Verdant Timber Key",
+		"Golden Birch Key",
+		"Emerald Grove Key",
+		"Ebony Oak Key",
+		"Amber Stone Key",
+		"Frostbite Key",
+		"Celestial Star Key",
+		"Ivory Drift Key",
+		"Amber Inferno Key",
+		"Ironclad Key",
+		"Aurora Beam Key",
+		"Obsidian Wraith Key",
+		"Plasma Surge Key",
+		"Sapphire Surge Key",
+		"Electric Storm Key",
+		"Golden Flame Key",
+		"Crystal Glacier Key",
+		"Frozen Twilight Key"
+	],
+	"shop_data":{
+		"The Mysterious Vault":{
+			"shop":"Radiantcore Gallery",
+			"shopkeeper":"Selwyn the Mistforged",
+			"shop_items":{
+				"Shop: Radiantcore Gallery - Item #1":{
+					"archipelago_id":23000.0,
+					"relic":{
+						"archipelago_id":4018.0,
+						"name":"Hourglass of Shifting"
+					},
+					"item":{
+						"name":"Platinum Forge Key",
+						"classification":1.0,
+						"player":1.0
+					}
+				},
+				"Shop: Radiantcore Gallery - Item #2":{
+					"archipelago_id":23001.0,
+					"relic":{
+						"archipelago_id":4045.0,
+						"name":"Veinstone of Echoing Lament"
+					},
+					"item":{
+						"name":"Golden Flame Key",
+						"classification":1.0,
+						"player":2.0
+					}
+				},
+				"Shop: Radiantcore Gallery - Item #3":{
+					"archipelago_id":23002.0,
+					"relic":{
+						"archipelago_id":4037.0,
+						"name":"Siren\\'s Tear"
+					},
+					"item":{
+						"name":"Midnight Abyss Key",
+						"classification":1.0,
+						"player":1.0
+					}
+				},
+				"Shop: Radiantcore Gallery - Item #4":{
+					"archipelago_id":23003.0,
+					"relic":{
+						"archipelago_id":4004.0,
+						"name":"Bogmire Amber"
+					},
+					"item":{
+						"name":"Auric Flash Key",
+						"classification":1.0,
+						"player":1.0
+					}
+				}
+			}
+		},
+		"The Secretive Door":{
+			"shop":"Shadowmantle Market",
+			"shopkeeper":"Damiel the Veilbreaker",
+			"shop_items":{
+				"Shop: Shadowmantle Market - Item #1":{
+					"archipelago_id":23500.0,
+					"relic":{
+						"archipelago_id":4016.0,
+						"name":"Gloomvine Tendril"
+					},
+					"item":{
+						"name":"Scarlet Ember Key",
+						"classification":1.0,
+						"player":1.0
+					}
+				},
+				"Shop: Shadowmantle Market - Item #2":{
+					"archipelago_id":23501.0,
+					"relic":{
+						"archipelago_id":4027.0,
+						"name":"Nightcrown Circlet"
+					},
+					"item":{
+						"name":"Aurora Beam Key",
+						"classification":1.0,
+						"player":2.0
+					}
+				}
+			}
+		},
+		"The Shrouded Portal":{
+			"shop":"Astralhelm Armory",
+			"shopkeeper":"Orielle the Starflame",
+			"shop_items":{
+				"Shop: Astralhelm Armory - Item #1":{
+					"archipelago_id":20400.0,
+					"relic":{
+						"archipelago_id":4038.0,
+						"name":"Soul Prism"
+					},
+					"item":{
+						"name":"Emerald Grove Key",
+						"classification":1.0,
+						"player":1.0
+					}
+				},
+				"Shop: Astralhelm Armory - Item #2":{
+					"archipelago_id":20401.0,
+					"relic":{
+						"archipelago_id":4031.0,
+						"name":"Resonant Bone Flute"
+					},
+					"item":{
+						"name":"Celestial Star Key",
+						"classification":1.0,
+						"player":2.0
+					}
+				},
+				"Shop: Astralhelm Armory - Item #3":{
+					"archipelago_id":20402.0,
+					"relic":{
+						"archipelago_id":4041.0,
+						"name":"Tempest\\'s Heart"
+					},
+					"item":{
+						"name":"Amber Inferno Key",
+						"classification":1.0,
+						"player":2.0
+					}
+				}
+			}
+		},
+		"The Unfathomable Door":{
+			"shop":"Astral Echo Atelier",
+			"shopkeeper":"Caelia the Dreamspun",
+			"shop_items":{
+				"Shop: Astral Echo Atelier - Item #1":{
+					"archipelago_id":20200.0,
+					"relic":{
+						"archipelago_id":4035.0,
+						"name":"Scale of the Skyborn"
+					},
+					"item":{
+						"name":"Nightbloom Petal",
+						"classification":1.0,
+						"player":2.0
+					}
+				},
+				"Shop: Astral Echo Atelier - Item #2":{
+					"archipelago_id":20201.0,
+					"relic":{
+						"archipelago_id":4048.0,
+						"name":"Wisp of the Weeping Willow"
+					},
+					"item":{
+						"name":"Frozen Twilight Key",
+						"classification":1.0,
+						"player":1.0
+					}
+				},
+				"Shop: Astral Echo Atelier - Item #3":{
+					"archipelago_id":20202.0,
+					"relic":{
+						"archipelago_id":4026.0,
+						"name":"Nightbloom Petal"
+					},
+					"item":{
+						"name":"Bogmire Amber",
+						"classification":1.0,
+						"player":2.0
+					}
+				},
+				"Shop: Astral Echo Atelier - Item #4":{
+					"archipelago_id":20203.0,
+					"relic":{
+						"archipelago_id":4017.0,
+						"name":"Heartwood Chip"
+					},
+					"item":{
+						"name":"Emerald Grove Key",
+						"classification":1.0,
+						"player":2.0
+					}
+				}
+			}
+		}
+	},
+	"shop_hints":false,
+	"shop_items_maximum":5.0,
+	"shop_items_minimum":2.0,
+	"shop_items_progression_percentage_chance":100.0,
+	"shops":true,
+	"shops_percentage_chance":20.0,
+	"unlocked_areas":1.0,
+	"used_magic_keys":[
+		"Silver Shield Key",
+		"Obsidian Core Key",
+		"Golden Zephyr Key",
+		"Auric Flash Key",
+		"Obsidian Wraith Key",
+		"Electric Storm Key",
+		"Amber Stone Key",
+		"Pearlescent Glow Key",
+		"Ironclad Key",
+		"Plasma Surge Key",
+		"Aurora Beam Key",
+		"Verdant Moss Key",
+		"Bronze Root Key",
+		"Cobalt Sky Key",
+		"Midnight Abyss Key",
+		"Ivory Drift Key",
+		"Crystal Glacier Key",
+		"Golden Flame Key",
+		"Sapphire Surge Key",
+		"Amber Inferno Key"
+	]
+}

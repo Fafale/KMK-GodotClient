@@ -15,6 +15,8 @@ var initial_refresh: bool = true
 func initialize_kmk(conn: ConnectionInfo) -> void:
 	conn.refresh_items.connect(kmk_after_refresh_items)
 	
+	print("passou aq")
+	
 	# initialize functions
 	init_areas(conn)
 	init_keys(conn.slot_data["used_magic_keys"])

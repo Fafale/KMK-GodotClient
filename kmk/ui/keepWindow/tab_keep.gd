@@ -62,7 +62,10 @@ func verify_locks(areas: Dictionary[String, KMKArea]) -> void:
 				
 				var available = area.count_available_trials()
 				if available > 0:
-					area_node.keys.append_text(" [color=medium_sea_green] %s available (%s complete)[/color] " % [available, area.trials.size() - available])
+					area_node.keys.append_text(" [color=medium_sea_green] %s available" % [available])
+					var sz = area.trials.size()
+					if available != sz:
+						area_node.keys.append_text(" (%s complete)" % [sz - available])
 				else:
 					area_node.keys.append_text(" [color=medium_sea_green] Area complete![/color]")
 			else:
