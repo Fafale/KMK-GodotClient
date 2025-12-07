@@ -51,6 +51,8 @@ func init_areas(conn: ConnectionInfo) -> void:
 			trial.objective = slot_data["area_trial_game_objectives"][trial_name]
 			trial.loc_id = data.get_loc_id(trial_name)
 			
+			trial.done = conn.slot_locations[trial.loc_id]
+			
 			area.trials[trial_name] = trial
 		
 		available_areas[area_name] = area

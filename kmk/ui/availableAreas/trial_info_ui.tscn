@@ -1,28 +1,35 @@
-[gd_scene format=3 uid="uid://dpedwu11pqqyy"]
+[gd_scene load_steps=2 format=3 uid="uid://dpedwu11pqqyy"]
 
-[node name="TrialInfo" type="VBoxContainer"]
+[ext_resource type="Script" uid="uid://b0c6xfg8nw87p" path="res://kmk/ui/availableAreas/trial_info_ui.gd" id="1_tok55"]
 
-[node name="LabelName" type="Label" parent="."]
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 18
-text = "Beyond the Area Name door: Trial/Location name here"
+[node name="TrialInfo" type="HBoxContainer"]
+offset_right = 1140.0
+offset_bottom = 61.0
+script = ExtResource("1_tok55")
 
-[node name="HBoxInfo" type="HBoxContainer" parent="."]
+[node name="BtConfirm" type="CheckButton" parent="."]
 layout_mode = 2
 
-[node name="BtConfirm" type="CheckButton" parent="HBoxInfo"]
-layout_mode = 2
-
-[node name="BtComplete" type="Button" parent="HBoxInfo"]
+[node name="BtComplete" type="Button" parent="."]
 layout_mode = 2
 size_flags_vertical = 4
 disabled = true
 text = "Complete"
 
-[node name="Objective" type="Label" parent="HBoxInfo"]
-custom_minimum_size = Vector2(480, 0)
+[node name="BtCopy" type="Button" parent="."]
 layout_mode = 2
-text = "Here will be the description of the trial, the objective itself."
-autowrap_mode = 2
+size_flags_vertical = 4
+text = "Copy"
+
+[node name="LabelTrial" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(920, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Beyond the Area Name door: Trial/Location name here[/b]
+[color=gray]Here will be the description of the trial, the objective itself."
+fit_content = true
+vertical_alignment = 1
+
+[connection signal="pressed" from="BtConfirm" to="." method="_on_bt_confirm_pressed"]
+[connection signal="pressed" from="BtComplete" to="." method="_on_bt_complete_pressed"]
+[connection signal="pressed" from="BtCopy" to="." method="_on_bt_copy_pressed"]

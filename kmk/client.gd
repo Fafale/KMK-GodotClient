@@ -27,10 +27,12 @@ func switch_tab(selected_tab: Control) -> void:
 
 func keep_create_areas(areas: Dictionary[String, KMKArea], keys: Array[String]) -> void:
 	tab_keep.create_areas(areas, keys)
+	tab_available.create_areas(areas)
 
 func keep_update_areas(areas: Dictionary[String, KMKArea], keys: Array[String]) -> void:
 	tab_keep.update_areas(areas, keys)
+	tab_available.update_areas(areas)
 
 func keep_update_trials(areas, keys) -> void:
 	tab_keep.update_areas(areas, keys)
-	#tab_trials.update_trials()
+	tab_available.update_trials(areas)

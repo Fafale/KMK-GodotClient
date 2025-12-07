@@ -1,13 +1,16 @@
-[gd_scene format=3 uid="uid://g5dvyk5xpeoe"]
+[gd_scene load_steps=2 format=3 uid="uid://g5dvyk5xpeoe"]
+
+[ext_resource type="Script" uid="uid://dr2inefxjfqhu" path="res://kmk/ui/availableAreas/available_area_ui.gd" id="1_2vusl"]
 
 [node name="availableAreaUI" type="VBoxContainer"]
 custom_minimum_size = Vector2(750, 60)
+script = ExtResource("1_2vusl")
 
 [node name="LabelTitle" type="RichTextLabel" parent="."]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 bbcode_enabled = true
-text = "[center][b][font_size=22]The 'Area Name' Door[/font_size][/b][/center]
-[color=gray][font_size=14][center]Area constraints should be shown here,
-If there are multiple they'll show in different lines[/center][/font_size][/color]"
+text = "[b][font_size=20]The 'Area Name' Door[/font_size] - Game name here[/b]
+[color=gray][font_size=14]Area constraints should be shown here,
+If there are multiple they'll show in different lines[/font_size][/color]"
 fit_content = true
