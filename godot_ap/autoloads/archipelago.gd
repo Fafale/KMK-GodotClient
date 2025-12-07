@@ -1,5 +1,8 @@
 class_name AP extends Node
 
+# Added signal to handle accidental disconnect until it's implemented
+signal accidental_disconnect
+
 ## The game name to connect to. Empty string for TextOnly or HintGame clients.
 @export var AP_GAME_NAME := "Keymaster's Keep"
 ## The tags for your game.
@@ -14,7 +17,7 @@ class_name AP extends Node
 ## Prints what items have been previously collected when reconnecting to a slot.
 @export var AP_PRINT_ITEMS_ON_CONNECT := false
 ## Hide item send messages that don't involve the client.
-@export var AP_HIDE_NONLOCAL_ITEMSENDS := true
+@export var AP_HIDE_NONLOCAL_ITEMSENDS := false
 ## Automatically opens a default AP text console.
 @export var AP_AUTO_OPEN_CONSOLE := false
 ## Show items that are both progression and useful with their own color
@@ -24,7 +27,7 @@ class_name AP extends Node
 ## Automatically open the Connection box when the console opens
 @export var AP_CONSOLE_CONNECTION_OPEN := false
 ## Automatically open/close the Connection box based on connected status
-@export var AP_CONSOLE_CONNECTION_AUTO := true
+@export var AP_CONSOLE_CONNECTION_AUTO := false
 
 @export_subgroup("Logging")
 ## Enables additional logging.
@@ -364,7 +367,11 @@ func _poll() -> void:
 					status = APStatus.DISCONNECTED
 					disconnected.emit()
 				else:
-					AP.log("Accidental disconnection; reconnecting!")
+					#AP.log("Accidental disconnection; reconnecting!")
+					
+					accidental_disconnect.emit()
+					
+					# Disable auto reconnect, not implemented yet
 					ap_reconnect()
 			WebSocketPeer.STATE_OPEN: # Running; handle communication
 				while _socket.get_available_packet_count():

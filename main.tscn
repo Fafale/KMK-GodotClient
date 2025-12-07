@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://bahgi7ail7unc"]
+[gd_scene load_steps=7 format=3 uid="uid://bahgi7ail7unc"]
 
 [ext_resource type="Script" uid="uid://tfnj2g3f6jvg" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://ceisuqvgftdu4" path="res://kmk/client.gd" id="2_lquwl"]
 [ext_resource type="Script" uid="uid://dhn2xf8tuf6ow" path="res://kmk/ui/keepWindow/tab_keep.gd" id="3_7mycd"]
 [ext_resource type="Script" uid="uid://c66tdwxbhbwsy" path="res://kmk/ui/availableAreas/tab_available.gd" id="4_7mycd"]
+
+[sub_resource type="Gradient" id="Gradient_1bvp3"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lquwl"]
+gradient = SubResource("Gradient_1bvp3")
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -197,6 +204,38 @@ placeholder_text = "Slot"
 [node name="BtConnect" type="Button" parent="Connection/WindowConnection"]
 layout_mode = 2
 text = "Connect"
+
+[node name="DisconnectWarning" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="TextureRect" parent="DisconnectWarning"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_lquwl")
+
+[node name="Label" type="RichTextLabel" parent="DisconnectWarning"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[font_size=30]Disconnected from server.
+
+Reconnection isn't implemented yet, please restart your client"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Client/Tabs/TabKeep/SideBar/BtGoal" to="Client/Tabs/TabKeep" method="_on_bt_goal_pressed"]
 [connection signal="pressed" from="Connection/WindowConnection/BtConnect" to="." method="_on_bt_connect_pressed"]
