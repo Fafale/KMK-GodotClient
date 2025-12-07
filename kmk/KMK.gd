@@ -2,8 +2,12 @@ class_name KMK
 
 var client_node: Control
 
+var goal: KMKGoal
+
 var available_areas: Dictionary[String, KMKArea] = {}
-var available_keys:  Array[String] = []
+
+var selected_keys: Array[String] = []
+var used_keys:  Array[String] = []
 
 var received_keys: Array[String] = []
 
@@ -19,17 +23,18 @@ func initialize_kmk(conn: ConnectionInfo) -> void:
 	
 	# initialize functions
 	init_areas(conn)
-	init_keys(conn.slot_data["used_magic_keys"])
+	init_keys(conn.slot_data["used_magic_keys"], conn.slot_data["selected_magic_keys"])
+	init_goal(conn.slot_data)
 
 # Called
-func kmk_after_obtained_item(received_item: NetworkItem) -> void:
+func kmk_after_obtained_item(_received_item: NetworkItem) -> void:
 	if is_refreshing:
-		print("obt: queue call")
+		print("obtained_item: queue refresh_item")
 		call_refresh = true
 	else:
-		print("obt: call")
+		print("obtained_item: call refresh_item")
 		is_refreshing = true
-		request_received_keys()
+		request_sync()
 
 # Initialize areas in available_areas
 func init_areas(conn: ConnectionInfo) -> void:
@@ -59,28 +64,62 @@ func init_areas(conn: ConnectionInfo) -> void:
 		
 		available_areas[area_name] = area
 
-# Save keys names in available_keys
-func init_keys(list: Array) -> void:
-	available_keys.clear()
+func init_keys(used_list: Array, selected_list: Array) -> void:
+	selected_keys.clear()
+	used_keys.clear()
 	
-	for key in list:
-		available_keys.append(key)
+	for key in used_list:
+		used_keys.append(key)
+	
+	for key in selected_list:
+		selected_keys.append(key)
+
+func init_goal(slot_data: Dictionary) -> void:
+	goal = KMKGoal.new()
+	
+	goal.goal_type = slot_data["goal"]
+	
+	if goal.goal_type == 0:
+		goal.goal_constraints.assign(slot_data["goal_game_optional_constraints"])
+		goal.goal_game = slot_data["goal_game"]
+		goal.goal_objective = slot_data["goal_trial_game_objective"]
+		
+		goal.available_artifacts = slot_data["artifacts_of_resolve_total"]
+		goal.required_artifacts = slot_data["artifacts_of_resolve_required"]
+		goal.received_artifacts = 0
+		
+		goal.area = KMKArea.new()
+		goal.area.game = goal.goal_game
+		goal.area.constraints = goal.goal_constraints
+		
+		var trial_name = "Inside the Keymaster's Challenge Chamber: Ultimate Challenge"
+		var data: DataCache = Archipelago.conn.get_gamedata_for_player()
+		var goal_trial = KMKTrial.new()
+		goal_trial.objective = goal.goal_objective
+		goal_trial.loc_id = data.get_loc_id(trial_name)
+		goal.area.trials[trial_name] = goal_trial
+	else:
+		goal.required_keys = slot_data["magic_keys_required"]
+		goal.available_keys = slot_data["magic_keys_total"]
+		goal.received_keys = 0
+	
 
 # Print all keys, marking received ones
 func print_keys() -> void:
-	for key in available_keys:
+	for key in used_keys:
 		if key in received_keys:
 			print("+ ", key)
 		else:
 			print(key)
 
 # Update received keys in received_keys
-func request_received_keys() -> void:
-	print("req")
+func request_sync() -> void:
+	print("sent sync request")
 	Archipelago.send_command("Sync", {})
 
 func kmk_after_refresh_items(item_list: Array[NetworkItem]):
 	received_keys.clear()
+	goal.clear()
 	
 	#print("refresh_items: ", item_list)
 	
@@ -88,13 +127,23 @@ func kmk_after_refresh_items(item_list: Array[NetworkItem]):
 	
 	for item:NetworkItem in item_list:
 		var item_name:String = data.get_item_name(item.id)
-		if item_name.contains("Key"):
-			if item_name in available_keys:
+		if item_name == "Artifact of Resolve":
+			goal.add_artifact()
+		elif item_name == "Unlock: The Keymaster's Challenge Chamber":
+			goal.unlock()
+		elif item_name == "Completed: Keymaster's Keep Challenge":
+			goal.complete()
+		elif item_name.contains("Key"):
+			if item_name in selected_keys:
 				received_keys.append(item_name)
+				goal.add_key()
 		elif item_name.contains("Unlock"):
 			for area_name in available_areas.keys():
 				if item_name == "Unlock: " + area_name:
 					available_areas[area_name].player_unlocked = true
+	
+	if goal.goal_unlocked:
+		available_areas[goal.area_name] = goal.area
 	
 	for area_name in available_areas.keys():
 		var area = available_areas[area_name]
@@ -121,19 +170,19 @@ func kmk_after_refresh_items(item_list: Array[NetworkItem]):
 		update_kmk_ui(available_areas, received_keys)
 	
 	if call_refresh:
-		print("ref: call ref again")
+		print("refresh_item: call queued refresh")
 		call_refresh = false
-		request_received_keys()
+		request_sync()
 	else:
-		print("ref: stop refresh")
+		print("refresh_item: end of refresh queue")
 		is_refreshing = false
 
 func setup_kmk_ui(areas: Dictionary[String, KMKArea], keys: Array[String]) -> void:
-	client_node.keep_create_areas(areas, keys)
+	client_node.keep_create_areas(areas, keys, Archipelago.conn.slot_data, goal)
 
 func update_kmk_ui(areas, keys) -> void:
 	#delay
-	client_node.keep_update_areas(areas, keys)
+	client_node.keep_update_areas(areas, keys, goal)
 	pass
 
 func kmk_after_room_update(_json: Dictionary) -> void:

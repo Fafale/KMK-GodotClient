@@ -25,13 +25,16 @@ func switch_tab(selected_tab: Control) -> void:
 	
 	selected_tab.show()
 
-func keep_create_areas(areas: Dictionary[String, KMKArea], keys: Array[String]) -> void:
+func keep_create_areas(areas: Dictionary[String, KMKArea], keys: Array[String], slot_data: Dictionary, goal: KMKGoal) -> void:
 	tab_keep.create_areas(areas, keys)
+	tab_keep.set_sidebar_info(slot_data)
+	tab_keep.set_goal_info(goal)
 	tab_available.create_areas(areas)
 
-func keep_update_areas(areas: Dictionary[String, KMKArea], keys: Array[String]) -> void:
+func keep_update_areas(areas: Dictionary[String, KMKArea], keys: Array[String], goal: KMKGoal) -> void:
 	tab_keep.update_areas(areas, keys)
 	tab_available.update_areas(areas)
+	tab_keep.set_goal_info(goal)
 
 func keep_update_trials(areas, keys) -> void:
 	tab_keep.update_areas(areas, keys)
