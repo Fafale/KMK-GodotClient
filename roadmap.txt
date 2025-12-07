@@ -1,0 +1,10 @@
+- shops need to be added
+
+- add chat
+- add hints tab
+- add completed trials tab
+
+- handle wrong connection info
+- handle accidental disconnection and reconnection
+
+- make the UI better (like the colorful keys from the main client)
