@@ -68,5 +68,4 @@ func verify_locks(areas: Dictionary[String, KMKArea]) -> void:
 			else:
 				area_node.button.disabled = false
 				area_node.keys.clear()
-				area_node.keys.append_text("[color=olive][b]Can unlock![/b][/color]")
-				Archipelago.location_checked()
+				area_node.keys.append_text("[color=olive]Can unlock![/color]")

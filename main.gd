@@ -43,7 +43,7 @@ func _on_bt_exec_pressed() -> void:
 
 func _on_bt_test_pressed() -> void:
 	if false:
-		kmk.init_areas(Archipelago.conn.slot_data)
+		kmk.init_areas(Archipelago.conn)
 		# kmk.load_keys(Archipelago.conn.slot_data["selected_magic_keys"])
 	
 	if false:

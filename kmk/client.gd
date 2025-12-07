@@ -30,3 +30,7 @@ func keep_create_areas(areas: Dictionary[String, KMKArea], keys: Array[String]) 
 
 func keep_update_areas(areas: Dictionary[String, KMKArea], keys: Array[String]) -> void:
 	tab_keep.update_areas(areas, keys)
+
+func keep_update_trials(areas, keys) -> void:
+	tab_keep.update_areas(areas, keys)
+	#tab_trials.update_trials()

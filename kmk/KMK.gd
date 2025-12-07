@@ -16,7 +16,7 @@ func initialize_kmk(conn: ConnectionInfo) -> void:
 	conn.refresh_items.connect(kmk_after_refresh_items)
 	
 	# initialize functions
-	init_areas(conn.slot_data)
+	init_areas(conn)
 	init_keys(conn.slot_data["used_magic_keys"])
 
 # Called
@@ -30,7 +30,10 @@ func kmk_after_obtained_item(received_item: NetworkItem) -> void:
 		request_received_keys()
 
 # Initialize areas in available_areas
-func init_areas(slot_data: Dictionary) -> void:
+func init_areas(conn: ConnectionInfo) -> void:
+	var slot_data: Dictionary = conn.slot_data
+	var data: DataCache = conn.get_gamedata_for_player()
+	
 	available_areas.clear()
 	
 	for area_name in slot_data["area_games"].keys():
@@ -46,6 +49,7 @@ func init_areas(slot_data: Dictionary) -> void:
 			var trial = KMKTrial.new()
 			
 			trial.objective = slot_data["area_trial_game_objectives"][trial_name]
+			trial.loc_id = data.get_loc_id(trial_name)
 			
 			area.trials[trial_name] = trial
 		
@@ -96,6 +100,13 @@ func kmk_after_refresh_items(item_list: Array[NetworkItem]):
 			for key_name in area.locks:
 				if not key_name in received_keys:
 					area.locked = true
+		
+		if area.player_unlocked:
+			for trial_name in area.trials.keys():
+				var trial:KMKTrial = area.trials[trial_name]
+				
+				if Archipelago.conn.slot_locations[trial.loc_id]:
+					trial.done = true
 	
 	if initial_refresh:
 		initial_refresh = false
@@ -121,5 +132,14 @@ func update_kmk_ui(areas, keys) -> void:
 	client_node.keep_update_areas(areas, keys)
 	pass
 
-func kmk_after_room_update(json: Dictionary) -> void:
-	pass
+func kmk_after_room_update(_json: Dictionary) -> void:
+	for area_name in available_areas.keys():
+		var area = available_areas[area_name]
+		
+		for trial_name in area.trials.keys():
+			var trial:KMKTrial = area.trials[trial_name]
+			
+			if Archipelago.conn.slot_locations[trial.loc_id]:
+				trial.done = true
+	
+	client_node.keep_update_trials(available_areas, received_keys)
