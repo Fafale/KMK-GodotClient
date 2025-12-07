@@ -22,6 +22,7 @@ grow_vertical = 2
 script = ExtResource("1_ig7tw")
 
 [node name="Client" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -182,28 +183,56 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="WindowConnection" type="VBoxContainer" parent="Connection"]
-layout_mode = 0
-offset_right = 72.0
-offset_bottom = 206.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.36979166
+anchor_top = 0.18209876
+anchor_right = 0.6302083
+anchor_bottom = 0.81790125
+offset_left = 114.0
+offset_right = -114.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
 
 [node name="LineditIP" type="LineEdit" parent="Connection/WindowConnection"]
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
-text = "localhost"
-placeholder_text = "IP"
+text = "archipelago.gg"
+placeholder_text = "Server Address"
+alignment = 1
 
 [node name="LineditPORT" type="LineEdit" parent="Connection/WindowConnection"]
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
-text = "38281"
-placeholder_text = "PORT"
+placeholder_text = "Server Port"
+alignment = 1
 
 [node name="LineditSLOT" type="LineEdit" parent="Connection/WindowConnection"]
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
-text = "Player1"
-placeholder_text = "Slot"
+placeholder_text = "Slot Name"
+alignment = 1
 
 [node name="BtConnect" type="Button" parent="Connection/WindowConnection"]
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 text = "Connect"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Connection"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.11111111
+grow_horizontal = 2
+text = "The screen will switch to the client once Connect is pressed, regardless of the connection result. (Not implemented yet)
+
+If nothing happens after ~10 seconds, something went wrong during connection. (Check the Admin/Server Log for info such as \"InvalidSlot\")"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="DisconnectWarning" type="Control" parent="."]
 visible = false
