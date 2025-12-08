@@ -1,7 +1,13 @@
 class_name AP extends Node
 
+
 # Added signal to handle accidental disconnect until it's implemented
 signal accidental_disconnect
+@onready var reconnect_queue: bool = false
+@onready var reconnect_ip: String = ""
+@onready var reconnect_port: String = ""
+@onready var reconnect_slot: String = ""
+@onready var reconnect_password: String = ""
 
 ## The game name to connect to. Empty string for TextOnly or HintGame clients.
 @export var AP_GAME_NAME := "Keymaster's Keep"
@@ -369,10 +375,12 @@ func _poll() -> void:
 				else:
 					#AP.log("Accidental disconnection; reconnecting!")
 					
+					reconnect_queue = true
+					await get_tree().create_timer(1).timeout
 					accidental_disconnect.emit()
 					
 					# Disable auto reconnect, not implemented yet
-					ap_reconnect()
+					# ap_reconnect()
 			WebSocketPeer.STATE_OPEN: # Running; handle communication
 				while _socket.get_available_packet_count():
 					var packet: PackedByteArray = _socket.get_packet()

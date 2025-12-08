@@ -96,7 +96,7 @@ func set_sidebar_info(slot_data: Dictionary) -> void:
 	label_info.append_text("[font_size=4][br][/font_size]Shops: ")
 	if slot_data["shops"]:
 		label_info.append_text("[color=medium_sea_green]On[/color][br]")
-		label_info.append_text("Shops Chance: [color=medium_sea_green]%d%%[/color][br]" % slot_data["shop_percentage_chance"])
+		label_info.append_text("Shops Chance: [color=medium_sea_green]%d%%[/color][br]" % slot_data["shops_percentage_chance"])
 		label_info.append_text("Shop Items (Minimum): [color=medium_sea_green]%d[/color][br]" % slot_data["shop_items_minimum"])
 		label_info.append_text("Shop Items (Maximum): [color=medium_sea_green]%d[/color][br]" % slot_data["shop_items_maximum"])
 		label_info.append_text("Shop Items Progression Chance: [color=medium_sea_green]%d%%[/color][br]" % slot_data["shop_items_progression_percentage_chance"])

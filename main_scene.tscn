@@ -1,0 +1,280 @@
+[gd_scene load_steps=7 format=3 uid="uid://crc8muyyvyua"]
+
+[ext_resource type="Script" uid="uid://tfnj2g3f6jvg" path="res://main.gd" id="1_d5x1h"]
+[ext_resource type="Script" uid="uid://ceisuqvgftdu4" path="res://kmk/client.gd" id="2_8mm7a"]
+[ext_resource type="Script" uid="uid://dhn2xf8tuf6ow" path="res://kmk/ui/keepWindow/tab_keep.gd" id="3_hq1ik"]
+[ext_resource type="Script" uid="uid://c66tdwxbhbwsy" path="res://kmk/ui/availableAreas/tab_available.gd" id="4_nfk4m"]
+
+[sub_resource type="Gradient" id="Gradient_1bvp3"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lquwl"]
+gradient = SubResource("Gradient_1bvp3")
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d5x1h")
+
+[node name="Client" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_8mm7a")
+
+[node name="Selector" type="HBoxContainer" parent="Client"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.09259259
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BtMain" type="Button" parent="Client/Selector"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+disabled = true
+text = "Archipelago"
+
+[node name="BtHint" type="Button" parent="Client/Selector"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+disabled = true
+text = "Hints"
+
+[node name="BtKeep" type="Button" parent="Client/Selector"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Keymaster's Keep"
+
+[node name="BtAvailable" type="Button" parent="Client/Selector"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Available Trials"
+
+[node name="BtCompleted" type="Button" parent="Client/Selector"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+disabled = true
+text = "Completed Trials"
+
+[node name="BtShop" type="Button" parent="Client/Selector"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+disabled = true
+text = "Shops"
+
+[node name="Tabs" type="Control" parent="Client"]
+layout_mode = 1
+anchor_top = 0.09259259
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TabKeep" type="Control" parent="Client/Tabs"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_hq1ik")
+metadata/_edit_group_ = true
+
+[node name="Scroll" type="ScrollContainer" parent="Client/Tabs/TabKeep"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.013020833
+anchor_right = 0.7074653
+anchor_bottom = 1.0
+offset_left = -7.0
+offset_right = 1.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="List" type="VBoxContainer" parent="Client/Tabs/TabKeep/Scroll"]
+layout_mode = 2
+
+[node name="SideBar" type="Control" parent="Client/Tabs/TabKeep"]
+anchors_preset = 0
+anchor_left = 0.7083333
+anchor_right = 0.9947917
+anchor_bottom = 1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="LabelInfo" type="RichTextLabel" parent="Client/Tabs/TabKeep/SideBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5782313
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[b]Seed Information[/b]"
+metadata/_edit_use_anchors_ = true
+
+[node name="LabelGoal" type="RichTextLabel" parent="Client/Tabs/TabKeep/SideBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5782313
+anchor_right = 1.0
+anchor_bottom = 0.8503401
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[b]Goal[/b]"
+metadata/_edit_use_anchors_ = true
+
+[node name="BtGoal" type="Button" parent="Client/Tabs/TabKeep/SideBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.8503401
+anchor_right = 1.0
+anchor_bottom = 0.9863946
+grow_horizontal = 2
+grow_vertical = 0
+disabled = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TabAvailable" type="Control" parent="Client/Tabs"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_nfk4m")
+metadata/_edit_group_ = true
+
+[node name="Scroll" type="ScrollContainer" parent="Client/Tabs/TabAvailable"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="List" type="VBoxContainer" parent="Client/Tabs/TabAvailable/Scroll"]
+custom_minimum_size = Vector2(750, 0)
+layout_mode = 2
+
+[node name="Connection" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="WindowConnection" type="VBoxContainer" parent="Connection"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.36979166
+anchor_top = 0.18209876
+anchor_right = 0.6302083
+anchor_bottom = 0.81790125
+offset_left = 114.0
+offset_right = -114.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="LineditIP" type="LineEdit" parent="Connection/WindowConnection"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+text = "archipelago.gg"
+placeholder_text = "Server Address"
+alignment = 1
+max_length = 50
+
+[node name="LineditPORT" type="LineEdit" parent="Connection/WindowConnection"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+placeholder_text = "Server Port"
+alignment = 1
+max_length = 10
+
+[node name="LineditSLOT" type="LineEdit" parent="Connection/WindowConnection"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+placeholder_text = "Slot Name"
+alignment = 1
+max_length = 16
+
+[node name="LineditPASSWORD" type="LineEdit" parent="Connection/WindowConnection"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+placeholder_text = "Password"
+alignment = 1
+max_length = 16
+
+[node name="BtConnect" type="Button" parent="Connection/WindowConnection"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+text = "Connect"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Connection"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.11111111
+grow_horizontal = 2
+text = "The screen will switch to the client once Connect is pressed, regardless of the connection result. (Not implemented yet)
+
+If nothing happens after ~10 seconds, something went wrong during connection. (Check the Admin/Server Log for info such as \"InvalidSlot\")"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ReconnectWarning" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="TextureRect" parent="ReconnectWarning"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_lquwl")
+
+[node name="Label" type="RichTextLabel" parent="ReconnectWarning"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[font_size=30]Lost connection to server.
+
+Trying to reconnect."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Client/Tabs/TabKeep/SideBar/BtGoal" to="Client/Tabs/TabKeep" method="_on_bt_goal_pressed"]
+[connection signal="pressed" from="Connection/WindowConnection/BtConnect" to="." method="_on_bt_connect_pressed"]
