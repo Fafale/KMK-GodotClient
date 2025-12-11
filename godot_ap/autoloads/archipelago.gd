@@ -2,6 +2,8 @@ class_name AP extends Node
 
 # Added signal to handle accidental disconnect until it's implemented
 signal accidental_disconnect
+signal reconnect_gave_up
+signal reconnect_attempted
 
 ## The game name to connect to. Empty string for TextOnly or HintGame clients.
 @export var AP_GAME_NAME := "Keymaster's Keep"
@@ -330,6 +332,7 @@ func _poll() -> void:
 					var err: Error = _socket.connect_to_url(get_url())
 					if err:
 						AP.log("Connection to '%s' failed! Retrying (%d)" % [get_url(),_connect_attempts])
+						reconnect_attempted.emit(_connect_attempts)
 						_wss = not _wss
 						if _wss: _connect_attempts += 1
 					elif output_console and not _connecting_part:
@@ -346,6 +349,7 @@ func _poll() -> void:
 							_socket.close()
 							status = APStatus.DISCONNECTING
 							AP.log("Connection to '%s' failed too much! Giving up!" % get_url())
+							reconnect_gave_up.emit()
 							if output_console and _connecting_part:
 								_connecting_part.text = "Connection Failed!"
 								_connecting_part.tooltip_text += "\nFailed connecting too many times. Check your connection details, or '/reconnect' to try again."
@@ -353,6 +357,7 @@ func _poll() -> void:
 						else:
 							AP.log("Connection to '%s' failed! Retrying (%d)" % [get_url(),_connect_attempts])
 							_wss = not _wss
+							reconnect_attempted.emit(_connect_attempts)
 							if _wss: _connect_attempts += 1
 				WebSocketPeer.STATE_CLOSING:
 					_socket.poll()
@@ -367,11 +372,9 @@ func _poll() -> void:
 					status = APStatus.DISCONNECTED
 					disconnected.emit()
 				else:
-					#AP.log("Accidental disconnection; reconnecting!")
-					
+					AP.log("Accidental disconnection; reconnecting!")
 					accidental_disconnect.emit()
 					
-					# Disable auto reconnect, not implemented yet
 					ap_reconnect()
 			WebSocketPeer.STATE_OPEN: # Running; handle communication
 				while _socket.get_available_packet_count():

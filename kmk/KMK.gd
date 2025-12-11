@@ -15,16 +15,21 @@ var is_refreshing: bool = false
 var call_refresh: bool = false
 
 var initial_refresh: bool = true
+var fresh_connection: bool = true
 
 func initialize_kmk(conn: ConnectionInfo) -> void:
 	conn.refresh_items.connect(kmk_after_refresh_items)
 	
-	print("passou aq")
+	print("initialize_kmk")
 	
 	# initialize functions
 	init_areas(conn)
 	init_keys(conn.slot_data["used_magic_keys"], conn.slot_data["selected_magic_keys"])
 	init_goal(conn.slot_data)
+
+func _on_accidental_disconnect():
+	print("accidental disconnect happened")
+	fresh_connection = true
 
 # Called
 func kmk_after_obtained_item(_received_item: NetworkItem) -> void:
@@ -38,6 +43,8 @@ func kmk_after_obtained_item(_received_item: NetworkItem) -> void:
 
 # Initialize areas in available_areas
 func init_areas(conn: ConnectionInfo) -> void:
+	print("init_areas")
+	
 	var slot_data: Dictionary = conn.slot_data
 	var data: DataCache = conn.get_gamedata_for_player()
 	
@@ -65,6 +72,8 @@ func init_areas(conn: ConnectionInfo) -> void:
 		available_areas[area_name] = area
 
 func init_keys(used_list: Array, selected_list: Array) -> void:
+	print("init_keys")
+	
 	selected_keys.clear()
 	used_keys.clear()
 	
@@ -75,6 +84,7 @@ func init_keys(used_list: Array, selected_list: Array) -> void:
 		selected_keys.append(key)
 
 func init_goal(slot_data: Dictionary) -> void:
+	print("init_goal")
 	goal = KMKGoal.new()
 	
 	goal.goal_type = slot_data["goal"]
@@ -118,64 +128,67 @@ func request_sync() -> void:
 	Archipelago.send_command("Sync", {})
 
 func kmk_after_refresh_items(item_list: Array[NetworkItem]):
-	received_keys.clear()
-	goal.clear()
-	
-	#print("refresh_items: ", item_list)
-	
-	var data: DataCache = Archipelago.conn.get_gamedata_for_player()
-	
-	for item:NetworkItem in item_list:
-		var item_name:String = data.get_item_name(item.id)
-		if item_name == "Artifact of Resolve":
-			goal.add_artifact()
-		elif item_name == "Unlock: The Keymaster's Challenge Chamber":
-			goal.unlock()
-		elif item_name == "Completed: Keymaster's Keep Challenge":
-			goal.complete()
-		elif item_name.contains("Key"):
-			if item_name in selected_keys:
-				received_keys.append(item_name)
-				goal.add_key()
-		elif item_name.contains("Unlock"):
-			for area_name in available_areas.keys():
-				if item_name == "Unlock: " + area_name:
-					available_areas[area_name].player_unlocked = true
-	
-	if goal.goal_unlocked:
-		available_areas[goal.area_name] = goal.area
-	
-	for area_name in available_areas.keys():
-		var area = available_areas[area_name]
+	if Archipelago.is_ap_connected():
+		received_keys.clear()
+		goal.clear()
 		
-		if area.locked:
-			area.locked = false
-			for key_name in area.locks:
-				if not key_name in received_keys:
-					area.locked = true
+		#print("refresh_items: ", item_list)
 		
-		if area.player_unlocked:
-			for trial_name in area.trials.keys():
-				var trial:KMKTrial = area.trials[trial_name]
-				
-				if Archipelago.conn.slot_locations[trial.loc_id]:
-					trial.done = true
-	
-	if initial_refresh:
-		initial_refresh = false
-		Archipelago.conn.obtained_item.connect(kmk_after_obtained_item)
-		Archipelago.conn.roomupdate.connect(kmk_after_room_update)
-		setup_kmk_ui(available_areas, received_keys)
-	else:
-		update_kmk_ui(available_areas, received_keys)
-	
-	if call_refresh:
-		print("refresh_item: call queued refresh")
-		call_refresh = false
-		request_sync()
-	else:
-		print("refresh_item: end of refresh queue")
-		is_refreshing = false
+		var data: DataCache = Archipelago.conn.get_gamedata_for_player()
+		
+		for item:NetworkItem in item_list:
+			var item_name:String = data.get_item_name(item.id)
+			if item_name == "Artifact of Resolve":
+				goal.add_artifact()
+			elif item_name == "Unlock: The Keymaster's Challenge Chamber":
+				goal.unlock()
+			elif item_name == "Completed: Keymaster's Keep Challenge":
+				goal.complete()
+			elif item_name.contains("Key"):
+				if item_name in selected_keys:
+					received_keys.append(item_name)
+					goal.add_key()
+			elif item_name.contains("Unlock"):
+				for area_name in available_areas.keys():
+					if item_name == "Unlock: " + area_name:
+						available_areas[area_name].player_unlocked = true
+		
+		if goal.goal_unlocked:
+			available_areas[goal.area_name] = goal.area
+		
+		for area_name in available_areas.keys():
+			var area = available_areas[area_name]
+			
+			if area.locked:
+				area.locked = false
+				for key_name in area.locks:
+					if not key_name in received_keys:
+						area.locked = true
+			
+			if area.player_unlocked:
+				for trial_name in area.trials.keys():
+					var trial:KMKTrial = area.trials[trial_name]
+					
+					if Archipelago.conn.slot_locations[trial.loc_id]:
+						trial.done = true
+		
+		if fresh_connection:
+			fresh_connection = false
+			if initial_refresh:
+				initial_refresh = false
+				setup_kmk_ui(available_areas, received_keys)
+			Archipelago.conn.obtained_item.connect(kmk_after_obtained_item)
+			Archipelago.conn.roomupdate.connect(kmk_after_room_update)
+		else:
+			update_kmk_ui(available_areas, received_keys)
+		
+		if call_refresh:
+			print("refresh_item: call queued refresh")
+			call_refresh = false
+			request_sync()
+		else:
+			print("refresh_item: end of refresh queue")
+			is_refreshing = false
 
 func setup_kmk_ui(areas: Dictionary[String, KMKArea], keys: Array[String]) -> void:
 	client_node.keep_create_areas(areas, keys, Archipelago.conn.slot_data, goal)
@@ -186,13 +199,14 @@ func update_kmk_ui(areas, keys) -> void:
 	pass
 
 func kmk_after_room_update(_json: Dictionary) -> void:
-	for area_name in available_areas.keys():
-		var area = available_areas[area_name]
-		
-		for trial_name in area.trials.keys():
-			var trial:KMKTrial = area.trials[trial_name]
+	if Archipelago.is_ap_connected():
+		for area_name in available_areas.keys():
+			var area = available_areas[area_name]
 			
-			if Archipelago.conn.slot_locations[trial.loc_id]:
-				trial.done = true
-	
-	client_node.keep_update_trials(available_areas, received_keys)
+			for trial_name in area.trials.keys():
+				var trial:KMKTrial = area.trials[trial_name]
+				
+				if Archipelago.conn.slot_locations[trial.loc_id]:
+					trial.done = true
+		
+		client_node.keep_update_trials(available_areas, received_keys)

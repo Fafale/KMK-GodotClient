@@ -269,9 +269,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
-text = "[font_size=30]Disconnected from server.
+text = "[font_size=30]Lost connection to Server.
 
-Reconnection isn't implemented yet, please restart your client"
+Trying to reconnect..."
 horizontal_alignment = 1
 vertical_alignment = 1
 

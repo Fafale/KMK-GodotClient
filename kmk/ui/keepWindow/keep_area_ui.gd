@@ -8,7 +8,8 @@ extends HBoxContainer
 
 
 func _on_bt_unlock_pressed() -> void:
-	var data = Archipelago.conn.get_gamedata_for_player()
-	
-	var loc_id = data.get_loc_id("Unlock: " + related_area_name)
-	Archipelago.send_command("LocationChecks", {"locations": [loc_id]})
+	if Archipelago.is_ap_connected():
+		var data = Archipelago.conn.get_gamedata_for_player()
+		
+		var loc_id = data.get_loc_id("Unlock: " + related_area_name)
+		Archipelago.send_command("LocationChecks", {"locations": [loc_id]})

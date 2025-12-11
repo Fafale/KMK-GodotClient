@@ -22,20 +22,21 @@ func update_areas(areas: Dictionary[String, KMKArea]) -> void:
 			add_area_node(area_name, area)
 
 func update_trials(areas: Dictionary[String, KMKArea]) -> void:
-	var areas_to_delete = []
-	
-	var area_list = list.get_children()
-	for area_node in area_list:
-		var area = areas[area_node.related_area_name]
-		if area.count_available_trials() == 0:
-			areas_to_delete.append(area_node)
-		else:
-			for trial_node in area_node.trial_nodes:
-				if Archipelago.conn.slot_locations[trial_node.loc_id]:
-					trial_node.hide()
-	
-	for node in areas_to_delete:
-		node.queue_free()
+	if Archipelago.is_ap_connected():
+		var areas_to_delete = []
+		
+		var area_list = list.get_children()
+		for area_node in area_list:
+			var area = areas[area_node.related_area_name]
+			if area.count_available_trials() == 0:
+				areas_to_delete.append(area_node)
+			else:
+				for trial_node in area_node.trial_nodes:
+					if Archipelago.conn.slot_locations[trial_node.loc_id]:
+						trial_node.hide()
+		
+		for node in areas_to_delete:
+			node.queue_free()
 
 func add_area_node(area_name: String, area: KMKArea) -> void:
 	var area_node = area_preload.instantiate()

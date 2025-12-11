@@ -147,9 +147,10 @@ func set_goal_info(goal: KMKGoal) -> void:
 
 
 func _on_bt_goal_pressed() -> void:
-	if button_function == 0:
-		var data = Archipelago.conn.get_gamedata_for_player()
-		var loc_id = data.get_loc_id(GOAL_UNLOCK_ITEM_NAME)
-		Archipelago.send_command("LocationChecks", {"locations": [loc_id]})
-	elif button_function == 1:
-		Archipelago.set_client_status(AP.ClientStatus.CLIENT_GOAL)
+	if Archipelago.is_ap_connected():
+		if button_function == 0:
+			var data = Archipelago.conn.get_gamedata_for_player()
+			var loc_id = data.get_loc_id(GOAL_UNLOCK_ITEM_NAME)
+			Archipelago.send_command("LocationChecks", {"locations": [loc_id]})
+		elif button_function == 1:
+			Archipelago.set_client_status(AP.ClientStatus.CLIENT_GOAL)
