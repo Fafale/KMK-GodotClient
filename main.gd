@@ -3,6 +3,7 @@ extends Control
 @onready var node_ip: LineEdit = $Connection/WindowConnection/LineditIP
 @onready var node_port: LineEdit = $Connection/WindowConnection/LineditPORT
 @onready var node_slot: LineEdit = $Connection/WindowConnection/LineditSLOT
+@onready var node_password: LineEdit = $Connection/WindowConnection/LineditPASSWORD
 
 @onready var disconnect_warning = $DisconnectWarning
 
@@ -34,7 +35,7 @@ func _on_bt_connect_pressed() -> void:
 		
 		await get_tree().create_timer(1.0).timeout
 		
-		Archipelago.ap_connect(node_ip.text, node_port.text, node_slot.text)
+		Archipelago.ap_connect(node_ip.text, node_port.text, node_slot.text, node_password.text)
 
 # Failsafe against bad/first connections
 func failsafe_connect() -> void:

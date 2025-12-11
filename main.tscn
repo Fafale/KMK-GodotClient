@@ -219,6 +219,12 @@ placeholder_text = "Slot Name"
 alignment = 1
 max_length = 16
 
+[node name="LineditPASSWORD" type="LineEdit" parent="Connection/WindowConnection"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+placeholder_text = "Password"
+alignment = 1
+
 [node name="BtConnect" type="Button" parent="Connection/WindowConnection"]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
