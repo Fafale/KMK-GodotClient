@@ -16,7 +16,7 @@ If you find any bug or have any suggestion, you can either create an Issue here 
 - Unlocking areas, sending objectives from trials. (Including game medleys)
 - Goaling for both goal types (Keymaster's Challenge and Magic Key Heist)
 - Items you receive will be handled accordingly, but you won't have a chat/log to notify you that you've received them
-- Shop locations (including info about the purchasable item name)
+- Shop locations (including info about the purchasable item)
 
 ## What is NOT implemented yet:
 - Server chat, including sent/received items and hints.
