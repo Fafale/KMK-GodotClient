@@ -12,6 +12,7 @@ This is just an attempt to make a client that's able to connect via mobile/brows
 
 If you find any bug or have any suggestion, you can either create an Issue here in github, or contact me via discord: @fafale (in the Archipelago server or DMs)
 ## What is already implemented:
+- Reconnecting to the server after an accidental disconnection (Such as internet failing)
 - Unlocking areas, sending objectives from trials. (Including game medleys)
 - Goaling for both goal types (Keymaster's Challenge and Magic Key Heist)
 - Items you receive will be handled accordingly, but you won't have a chat/log to notify you that you've received them
@@ -21,4 +22,3 @@ If you find any bug or have any suggestion, you can either create an Issue here 
 - Shop locations (you should be able to safely connect to slots with shops enabled, you just can't send their items)
 - Completed trials tab
 - Wrong connection info, such as writing the wrong address or port (you'll need to re-open the client to try again)
-- Reconnecting after accidental disconnection, such as internet failing (you'll need to re-open the client to connect again)
