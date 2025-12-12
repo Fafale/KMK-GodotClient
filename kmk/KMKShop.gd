@@ -14,3 +14,12 @@ func initialize(info: Dictionary) -> void:
 		location.initialize(info["shop_items"][loc_name])
 		
 		locations[loc_name] = location
+
+func count_available_items() -> int:
+	var count = 0
+	
+	for loc: KMKShopLocation in locations.values():
+		if not loc.sent:
+			count += 1
+	
+	return count

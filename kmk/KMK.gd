@@ -50,24 +50,31 @@ func init_areas(conn: ConnectionInfo) -> void:
 	
 	available_areas.clear()
 	
-	for area_name in slot_data["area_games"].keys():
+	for area_name in slot_data["lock_combinations"].keys():
 		var area = KMKArea.new()
-		area.game = slot_data["area_games"][area_name]
 		
 		if slot_data["lock_combinations"][area_name] != null:
 			area.locks.assign(slot_data["lock_combinations"][area_name])
 		
-		area.constraints.assign(slot_data["area_game_optional_constraints"][area_name])
 		
-		for trial_name in slot_data["area_trials"][area_name]:
-			var trial = KMKTrial.new()
+		var possible_game = slot_data["area_games"].get(area_name, null)
+		if possible_game != null:
+			area.game = possible_game
+			area.constraints.assign(slot_data["area_game_optional_constraints"][area_name])
 			
-			trial.objective = slot_data["area_trial_game_objectives"][trial_name]
-			trial.loc_id = data.get_loc_id(trial_name)
-			
-			trial.done = conn.slot_locations[trial.loc_id]
-			
-			area.trials[trial_name] = trial
+			for trial_name in slot_data["area_trials"][area_name]:
+				var trial = KMKTrial.new()
+				
+				trial.objective = slot_data["area_trial_game_objectives"][trial_name]
+				trial.loc_id = data.get_loc_id(trial_name)
+				
+				trial.done = conn.slot_locations[trial.loc_id]
+				
+				area.trials[trial_name] = trial
+		else:
+			var shop: KMKShop = KMKShop.new()
+			shop.initialize(slot_data["shop_data"][area_name])
+			area.shop = shop
 		
 		available_areas[area_name] = area
 

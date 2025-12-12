@@ -7,9 +7,10 @@ var locks: Array[String] = []
 # If it was unlocked by the player
 var player_unlocked: bool = false
 
+var shop: KMKShop = null
+
 var game: String = ""
 var constraints: Array[String] = []
-
 
 var trials: Dictionary[String, KMKTrial] = {}
 
@@ -20,3 +21,6 @@ func count_available_trials() -> int:
 			count += 1
 	
 	return count
+
+func is_shop() -> bool:
+	return shop != null

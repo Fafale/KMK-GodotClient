@@ -66,16 +66,22 @@ func verify_locks(areas: Dictionary[String, KMKArea]) -> void:
 				area_node.button.disabled = true
 				area_node.button.text = "Unlocked"
 				area_node.keys.clear()
-				area_node.keys.append_text("[b]Game:[/b] " + area.game)
-				
-				var available = area.count_available_trials()
-				if available > 0:
-					area_node.keys.append_text(" [color=medium_sea_green] %s available" % [available])
-					var sz = area.trials.size()
-					if available != sz:
-						area_node.keys.append_text(" (%s complete)" % [sz - available])
+				if not area.is_shop():
+					area_node.keys.append_text("[b]Game:[/b] " + area.game)
+					
+					var available = area.count_available_trials()
+					if available > 0:
+						area_node.keys.append_text(" [color=medium_sea_green] %s available" % [available])
+						var sz = area.trials.size()
+						if available != sz:
+							area_node.keys.append_text(" (%s complete)" % [sz - available])
+					else:
+						area_node.keys.append_text(" [color=medium_sea_green] Area complete![/color]")
 				else:
-					area_node.keys.append_text(" [color=medium_sea_green] Area complete![/color]")
+					area_node.keys.append_text("[b]Shop:[/b] %s" % [area.shop.name])
+					
+					var available = area.shop.count_available_items()
+					area_node.keys.append_text(" [color=medium_sea_green] %s item(s) for sale" % [available])
 			else:
 				area_node.button.disabled = false
 				area_node.keys.clear()
