@@ -81,7 +81,13 @@ func verify_locks(areas: Dictionary[String, KMKArea]) -> void:
 					area_node.keys.append_text("[b]Shop:[/b] %s" % [area.shop.name])
 					
 					var available = area.shop.count_available_items()
-					area_node.keys.append_text(" [color=medium_sea_green] %s item(s) for sale" % [available])
+					if available > 0:
+						area_node.keys.append_text(" [color=medium_sea_green] %s item(s) for sale" % [available])
+						var sz = area.shop.locations.size()
+						if available != sz:
+							area_node.keys.append_text(" (%s purchased)" % [sz - available])
+					else:
+						area_node.keys.append_text(" [color=medium_sea_green] Sold out![/color]")
 			else:
 				area_node.button.disabled = false
 				area_node.keys.clear()

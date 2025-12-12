@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bahgi7ail7unc"]
+[gd_scene load_steps=8 format=3 uid="uid://bahgi7ail7unc"]
 
 [ext_resource type="Script" uid="uid://tfnj2g3f6jvg" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://ceisuqvgftdu4" path="res://kmk/client.gd" id="2_lquwl"]
 [ext_resource type="Script" uid="uid://dhn2xf8tuf6ow" path="res://kmk/ui/keepWindow/tab_keep.gd" id="3_7mycd"]
 [ext_resource type="Script" uid="uid://c66tdwxbhbwsy" path="res://kmk/ui/availableAreas/tab_available.gd" id="4_7mycd"]
+[ext_resource type="Script" uid="uid://bqa3mitkxkpwv" path="res://kmk/ui/shops/tab_shops.gd" id="5_lquwl"]
 
 [sub_resource type="Gradient" id="Gradient_1bvp3"]
 offsets = PackedFloat32Array(0)
@@ -72,7 +73,6 @@ text = "Completed Trials"
 [node name="BtShop" type="Button" parent="Client/Selector"]
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
-disabled = true
 text = "Shops"
 
 [node name="Tabs" type="Control" parent="Client"]
@@ -170,6 +170,30 @@ horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
 [node name="List" type="VBoxContainer" parent="Client/Tabs/TabAvailable/Scroll"]
+custom_minimum_size = Vector2(750, 0)
+layout_mode = 2
+
+[node name="TabShops" type="Control" parent="Client/Tabs"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_lquwl")
+
+[node name="Scroll" type="ScrollContainer" parent="Client/Tabs/TabShops"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="List" type="VBoxContainer" parent="Client/Tabs/TabShops/Scroll"]
 custom_minimum_size = Vector2(750, 0)
 layout_mode = 2
 

@@ -1,5 +1,58 @@
 class_name KMK
 
+const RELIC_NAMES = [
+	"Abyssal Knot",
+	"Ashvine Ring",
+	"Astralglen Sprig",
+	"Bloodroot Bulb",
+	"Bogmire Amber",
+	"Celestine Strand",
+	"Cinder of the Lost",
+	"Coralheart Fragment",
+	"Duskwind Feather",
+	"Echoiron Nail",
+	"Emberglow Pellet",
+	"Fogseed Capsule",
+	"Frostwreath Shard",
+	"Galechime Whistle",
+	"Glasswing Brooch",
+	"Glimmercoil Spring",
+	"Gloomvine Tendril",
+	"Heartwood Chip",
+	"Hourglass of Shifting",
+	"Ink of Forgotten Rites",
+	"Ironroot Seed",
+	"Luminweave Ribbon",
+	"Maelstrom Shard",
+	"Mirror of Whispers",
+	"Mistbound Lantern",
+	"Morrowmist Dewdrop",
+	"Nightbloom Petal",
+	"Nightcrown Circlet",
+	"Pathfinder's Sundial",
+	"Phoenix Lament Scale",
+	"Quartz of Memory's Edge",
+	"Resonant Bone Flute",
+	"Rune of Silent Oaths",
+	"Sable Quartz Bead",
+	"Sands of Unmaking",
+	"Scale of the Skyborn",
+	"Sigil of Broken Chains",
+	"Siren's Tear",
+	"Soul Prism",
+	"Starmark Lens",
+	"Stormshackle Chain",
+	"Tempest's Heart",
+	"Thornmarrow Spike",
+	"Thunderrift Shard",
+	"Vein of Nightfire",
+	"Veinstone of Echoing Lament",
+	"Voidecho Sphere",
+	"Vortex Prism",
+	"Wisp of the Weeping Willow",
+	"Wyrmcoil Ring"
+]
+
 var client_node: Control
 
 var goal: KMKGoal
@@ -10,6 +63,8 @@ var selected_keys: Array[String] = []
 var used_keys:  Array[String] = []
 
 var received_keys: Array[String] = []
+
+var received_relics: Array[String] = []
 
 var is_refreshing: bool = false
 var call_refresh: bool = false
@@ -137,6 +192,7 @@ func request_sync() -> void:
 func kmk_after_refresh_items(item_list: Array[NetworkItem]):
 	if Archipelago.is_ap_connected():
 		received_keys.clear()
+		received_relics.clear()
 		goal.clear()
 		
 		#print("refresh_items: ", item_list)
@@ -159,6 +215,8 @@ func kmk_after_refresh_items(item_list: Array[NetworkItem]):
 				for area_name in available_areas.keys():
 					if item_name == "Unlock: " + area_name:
 						available_areas[area_name].player_unlocked = true
+			elif item_name in RELIC_NAMES:
+				received_relics.append(item_name)
 		
 		if goal.goal_unlocked:
 			available_areas[goal.area_name] = goal.area
@@ -173,11 +231,21 @@ func kmk_after_refresh_items(item_list: Array[NetworkItem]):
 						area.locked = true
 			
 			if area.player_unlocked:
-				for trial_name in area.trials.keys():
-					var trial:KMKTrial = area.trials[trial_name]
-					
-					if Archipelago.conn.slot_locations[trial.loc_id]:
-						trial.done = true
+				if not area.is_shop():
+					for trial_name in area.trials.keys():
+						var trial:KMKTrial = area.trials[trial_name]
+						
+						if Archipelago.conn.slot_locations[trial.loc_id]:
+							trial.done = true
+				else:
+					for loc_name in area.shop.locations.keys():
+						var loc:KMKShopLocation = area.shop.locations[loc_name]
+						
+						if Archipelago.conn.slot_locations[loc.loc_id]:
+							loc.sent = true
+						
+						if loc.relic_name in received_relics:
+							loc.relic_have = true
 		
 		if fresh_connection:
 			fresh_connection = false

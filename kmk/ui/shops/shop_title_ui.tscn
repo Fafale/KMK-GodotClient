@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg164geksv4vs"]
+
+[ext_resource type="Script" uid="uid://1xgxawist5pc" path="res://kmk/ui/shops/shop_title_ui.gd" id="1_jfpix"]
+
+[node name="availableAreaUI" type="VBoxContainer"]
+custom_minimum_size = Vector2(750, 60)
+script = ExtResource("1_jfpix")
+
+[node name="LabelTitle" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+mouse_filter = 1
+bbcode_enabled = true
+text = "[b][font_size=20]The 'Area Name' Door[/font_size] - Game name here[/b]
+[color=gray][font_size=14]Area constraints should be shown here,
+If there are multiple they'll show in different lines[/font_size][/color]"
+fit_content = true

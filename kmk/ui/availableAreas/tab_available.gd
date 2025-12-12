@@ -11,14 +11,14 @@ func create_areas(areas: Dictionary[String, KMKArea]) -> void:
 	for area_name in areas.keys():
 		var area = areas[area_name]
 		
-		if area.count_available_trials() > 0 and area.player_unlocked:
+		if area.count_available_trials() > 0 and area.player_unlocked and (not area.is_shop()):
 			add_area_node(area_name, area)
 
 func update_areas(areas: Dictionary[String, KMKArea]) -> void:
 	for area_name in areas.keys():
 		var area = areas[area_name]
 		
-		if (not area_name in added_areas) and area.player_unlocked and area.count_available_trials() > 0:
+		if (not area_name in added_areas) and area.player_unlocked and area.count_available_trials() > 0 and (not area.is_shop()):
 			add_area_node(area_name, area)
 
 func update_trials(areas: Dictionary[String, KMKArea]) -> void:

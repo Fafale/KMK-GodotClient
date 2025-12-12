@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpedwu11pqqyy"]
+[gd_scene load_steps=2 format=3 uid="uid://bxxrr7bv5sogp"]
 
-[ext_resource type="Script" uid="uid://b0c6xfg8nw87p" path="res://kmk/ui/availableAreas/trial_info_ui.gd" id="1_tok55"]
+[ext_resource type="Script" uid="uid://7l64xc6oytt3" path="res://kmk/ui/availableAreas/trial_info_ui.gd" id="1_tok55"]
 
 [node name="TrialInfo" type="HBoxContainer"]
 offset_right = 1140.0

@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpedwu11pqqyy"]
+
+[ext_resource type="Script" uid="uid://b0c6xfg8nw87p" path="res://kmk/ui/shops/shop_item_ui.gd" id="1_revfj"]
+
+[node name="ShopItemInfo" type="HBoxContainer"]
+offset_right = 1140.0
+offset_bottom = 61.0
+script = ExtResource("1_revfj")
+
+[node name="BtPurchase" type="Button" parent="."]
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 1
+disabled = true
+text = "Need Relic"
+
+[node name="LabelItem" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(1030, 0)
+layout_mode = 2
+mouse_filter = 1
+bbcode_enabled = true
+text = "[color=medium_purple][b]Item Name[/b][/color]   [b]Type:[/b] Progression   [b]Original Owner:[/b] [color=dark_violet]Player Name[/color] of [color=medium_slate_blue]Game Name[/color]   [b]Price:[/b] 1x [color=medium_sea_green]Required Relic Name[/color]
+[color=gray]Here will be the description of the item, when added."
+fit_content = true
+vertical_alignment = 1
+
+[connection signal="pressed" from="BtPurchase" to="." method="_on_bt_purchase_pressed"]
