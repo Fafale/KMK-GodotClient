@@ -9,6 +9,7 @@ script = ExtResource("1_2vusl")
 [node name="LabelTitle" type="RichTextLabel" parent="."]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+mouse_filter = 1
 bbcode_enabled = true
 text = "[b][font_size=20]The 'Area Name' Door[/font_size] - Game name here[/b]
 [color=gray][font_size=14]Area constraints should be shown here,

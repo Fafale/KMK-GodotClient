@@ -12,12 +12,14 @@ script = ExtResource("1_sjwyt")
 custom_minimum_size = Vector2(81, 0)
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 1
 disabled = true
 text = "Unlock"
 
 [node name="LabelTitle" type="RichTextLabel" parent="."]
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
+mouse_filter = 1
 bbcode_enabled = true
 text = "[b]The 'Area Name' Door[/b]"
 fit_content = true
@@ -26,6 +28,7 @@ vertical_alignment = 1
 [node name="LabelKeys" type="RichTextLabel" parent="."]
 custom_minimum_size = Vector2(536, 0)
 layout_mode = 2
+mouse_filter = 1
 bbcode_enabled = true
 text = "[b]Needs:[/b] Long name of key 1, Long name of key 2, Long name of key 3, Long name of key 4 "
 fit_content = true

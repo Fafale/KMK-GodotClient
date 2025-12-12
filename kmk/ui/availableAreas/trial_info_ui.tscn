@@ -9,21 +9,25 @@ script = ExtResource("1_tok55")
 
 [node name="BtConfirm" type="CheckButton" parent="."]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="BtComplete" type="Button" parent="."]
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 1
 disabled = true
 text = "Complete"
 
 [node name="BtCopy" type="Button" parent="."]
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 1
 text = "Copy"
 
 [node name="LabelTrial" type="RichTextLabel" parent="."]
 custom_minimum_size = Vector2(920, 0)
 layout_mode = 2
+mouse_filter = 1
 bbcode_enabled = true
 text = "[b]Beyond the Area Name door: Trial/Location name here[/b]
 [color=gray]Here will be the description of the trial, the objective itself."
