@@ -16,9 +16,9 @@ If you find any bug or have any suggestion, you can either create an Issue here 
 - Unlocking areas, sending objectives from trials. (Including game medleys)
 - Goaling for both goal types (Keymaster's Challenge and Magic Key Heist)
 - Items you receive will be handled accordingly, but you won't have a chat/log to notify you that you've received them
+- Shop locations (including info about the purchasable item)
 
 ## What is NOT implemented yet:
 - Server chat, including sent/received items and hints.
-- Shop locations (you should be able to safely connect to slots with shops enabled, you just can't send their items)
 - Completed trials tab
 - Wrong connection info, such as writing the wrong address or port (you'll need to re-open the client to try again)
