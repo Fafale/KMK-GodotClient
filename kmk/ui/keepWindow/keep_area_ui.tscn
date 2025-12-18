@@ -4,8 +4,8 @@
 
 [node name="keepAreaUI" type="HBoxContainer"]
 custom_minimum_size = Vector2(750, 60)
-offset_right = 780.0
-offset_bottom = 84.0
+offset_right = 795.0
+offset_bottom = 60.0
 script = ExtResource("1_sjwyt")
 
 [node name="BtUnlock" type="Button" parent="."]
