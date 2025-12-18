@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bahgi7ail7unc"]
+[gd_scene load_steps=9 format=3 uid="uid://bahgi7ail7unc"]
 
 [ext_resource type="Script" uid="uid://tfnj2g3f6jvg" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://ceisuqvgftdu4" path="res://kmk/client.gd" id="2_lquwl"]
 [ext_resource type="Script" uid="uid://dhn2xf8tuf6ow" path="res://kmk/ui/keepWindow/tab_keep.gd" id="3_7mycd"]
 [ext_resource type="Script" uid="uid://c66tdwxbhbwsy" path="res://kmk/ui/availableAreas/tab_available.gd" id="4_7mycd"]
+[ext_resource type="Theme" uid="uid://bxhfxfjoid7iy" path="res://themes/button_theme.tres" id="4_272bh"]
 [ext_resource type="Script" uid="uid://bqa3mitkxkpwv" path="res://kmk/ui/shops/tab_shops.gd" id="5_lquwl"]
 
 [sub_resource type="Gradient" id="Gradient_1bvp3"]
@@ -145,6 +146,7 @@ anchor_right = 1.0
 anchor_bottom = 0.9863946
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("4_272bh")
 disabled = true
 metadata/_edit_use_anchors_ = true
 

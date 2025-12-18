@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpedwu11pqqyy"]
+[gd_scene load_steps=3 format=3 uid="uid://dpedwu11pqqyy"]
 
 [ext_resource type="Script" uid="uid://b0c6xfg8nw87p" path="res://kmk/ui/shops/shop_item_ui.gd" id="1_revfj"]
+[ext_resource type="Theme" uid="uid://bxhfxfjoid7iy" path="res://themes/button_theme.tres" id="2_48qe0"]
 
 [node name="ShopItemInfo" type="HBoxContainer"]
 offset_right = 1140.0
@@ -12,6 +13,7 @@ custom_minimum_size = Vector2(94, 0)
 layout_mode = 2
 size_flags_vertical = 4
 mouse_filter = 1
+theme = ExtResource("2_48qe0")
 disabled = true
 text = "Need Relic"
 
