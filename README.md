@@ -1,7 +1,7 @@
 # Godot Client for Keymaster's Keep
 This project is a Godot Client implementation for [Keymaster's Keep](https://github.com/silasary/Archipelago/releases/tag/keymasters-2.0.1), a bingo-style game for [Archipelago](https://archipelago.gg/).
 
-It uses the [GodotAP](https://github.com/EmilyV99/GodotAP) library to handle connection between client and server.
+It uses the [GodotAP v0.4.0](https://github.com/EmilyV99/GodotAP) library to handle connection between client and server.
 
 This client doesn't store any info locally, so you need to keep connected to the server for it to work. However, this means it's easier to make it able to connect via Browser and Mobile.
 

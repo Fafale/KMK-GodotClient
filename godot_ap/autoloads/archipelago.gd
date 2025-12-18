@@ -10,9 +10,9 @@ signal reconnect_attempted
 ## The tags for your game.
 @export var AP_GAME_TAGS: Array[String] = ["KMK-GodotClient"]
 ## The version of your client. Arbitrary number for you to manage.
-@export var AP_CLIENT_VERSION := Version.val(0,0,0)
+@export var AP_CLIENT_VERSION := Version.val(0,3,1)
 ## The target AP version. Not arbitrary - used in `Connect` packet.
-@export var AP_VERSION := Version.val(0,6,4)
+@export var AP_VERSION := Version.val(0,6,5)
 ## The ItemHandling to use when connecting.
 @export var AP_ITEM_HANDLING := ItemHandling.ALL
 @export_group("Client Settings")
@@ -409,7 +409,7 @@ func _handle_command(json: Dictionary) -> void:
 			conn.gen_version = Version.from(json["generator_version"])
 			conn.seed_name = json["seed_name"]
 			handle_datapackage_checksums(json["datapackage_checksums"])
-			var args: Dictionary = {"name":creds.slot,"password":creds.pwd,"uuid":conn.uid,
+			var args: Dictionary = {"name":creds.slot,"password":creds.pwd,"uuid":config.uuid,
 				"version":AP_VERSION._as_ap_dict(),"slot_data":true}
 			args["game"] = AP_GAME_NAME
 			args["tags"] = AP_GAME_TAGS
