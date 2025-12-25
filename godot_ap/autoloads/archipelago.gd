@@ -10,7 +10,7 @@ signal reconnect_attempted
 ## The tags for your game.
 @export var AP_GAME_TAGS: Array[String] = ["KMK-GodotClient"]
 ## The version of your client. Arbitrary number for you to manage.
-@export var AP_CLIENT_VERSION := Version.val(0,3,1)
+@export var AP_CLIENT_VERSION := Version.val(0,4,0)
 ## The target AP version. Not arbitrary - used in `Connect` packet.
 @export var AP_VERSION := Version.val(0,6,5)
 ## The ItemHandling to use when connecting.

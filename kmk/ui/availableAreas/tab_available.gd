@@ -11,15 +11,21 @@ func create_areas(areas: Dictionary[String, KMKArea]) -> void:
 	for area_name in areas.keys():
 		var area = areas[area_name]
 		
-		if area.count_available_trials() > 0 and area.player_unlocked and (not area.is_shop()):
-			add_area_node(area_name, area)
+		if area.player_unlocked and (not area.is_shop()):
+			if area.count_available_trials() > 0:
+				add_area_node(area_name, area)
+			else:
+				send_area_completion(area_name)
 
 func update_areas(areas: Dictionary[String, KMKArea]) -> void:
 	for area_name in areas.keys():
 		var area = areas[area_name]
 		
-		if (not area_name in added_areas) and area.player_unlocked and area.count_available_trials() > 0 and (not area.is_shop()):
-			add_area_node(area_name, area)
+		if (not area_name in added_areas) and area.player_unlocked and (not area.is_shop()):
+			if area.count_available_trials() > 0:
+				add_area_node(area_name, area)
+			else:
+				send_area_completion(area_name)
 
 func update_trials(areas: Dictionary[String, KMKArea]) -> void:
 	if Archipelago.is_ap_connected():
@@ -29,6 +35,7 @@ func update_trials(areas: Dictionary[String, KMKArea]) -> void:
 		for area_node in area_list:
 			var area = areas[area_node.related_area_name]
 			if area.count_available_trials() == 0:
+				send_area_completion(area_node.related_area_name)
 				areas_to_delete.append(area_node)
 			else:
 				for trial_node in area_node.trial_nodes:
@@ -65,3 +72,9 @@ func add_area_node(area_name: String, area: KMKArea) -> void:
 			
 			trial_node.label.clear()
 			trial_node.label.append_text("[b]%s[/b][br][color=gray]%s[/color]" % [trial_name, trial.objective])
+
+func send_area_completion(area_name):
+	var data = Archipelago.conn.get_gamedata_for_player()
+	var complete_loc_id = data.get_loc_id("Complete: " + area_name)
+	if complete_loc_id != -1:
+		Archipelago.send_command("LocationChecks", {"locations": [complete_loc_id]})

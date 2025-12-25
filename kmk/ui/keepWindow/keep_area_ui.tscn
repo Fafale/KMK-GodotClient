@@ -4,9 +4,9 @@
 [ext_resource type="Theme" uid="uid://bxhfxfjoid7iy" path="res://themes/button_theme.tres" id="2_70kgr"]
 
 [node name="keepAreaUI" type="HBoxContainer"]
-custom_minimum_size = Vector2(750, 60)
+custom_minimum_size = Vector2(750, 46)
 offset_right = 795.0
-offset_bottom = 60.0
+offset_bottom = 46.0
 script = ExtResource("1_sjwyt")
 
 [node name="BtUnlock" type="Button" parent="."]

@@ -7,7 +7,11 @@ extends Control
 
 @onready var list = $Scroll/List
 
-func create_areas(areas: Dictionary[String, KMKArea]) -> void:
+@onready var option_shop_hints: bool = false
+
+func create_areas(areas: Dictionary[String, KMKArea], shop_hint_value: bool) -> void:
+	option_shop_hints = shop_hint_value
+	
 	for area_name in areas.keys():
 		var area = areas[area_name]
 		
@@ -44,6 +48,9 @@ func update_locations(areas: Dictionary[String, KMKArea]) -> void:
 				loc_node.update_button(area.shop.locations[loc_node.related_loc_name])
 
 func add_area_node(area_name: String, area: KMKArea) -> void:
+	# Location id list for hints, if enabled
+	var locations = []
+	
 	var area_node = area_preload.instantiate()
 	list.add_child(area_node)
 	
@@ -75,3 +82,10 @@ func add_area_node(area_name: String, area: KMKArea) -> void:
 		loc_node.label.append_text("[b]Original Owner:[/b] [color=dark_violet]%s[/color] of [color=medium_slate_blue]%s[/color]   [b]Price:[/b] 1x [color=medium_sea_green]%s[/color]" % [loc.item_player_name, loc.item_player_game, loc.relic_name])
 		
 		loc_node.update_button(loc)
+		
+		locations.append(loc.loc_id)
+	
+	if option_shop_hints:
+		print("shop_hints! locations:")
+		print(locations)
+		Archipelago.send_command("LocationScouts", {"locations":locations, "create_as_hint":2})

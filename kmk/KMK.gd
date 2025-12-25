@@ -151,7 +151,7 @@ func init_goal(slot_data: Dictionary) -> void:
 	
 	goal.goal_type = slot_data["goal"]
 	
-	if goal.goal_type == 0:
+	if goal.goal_type == goal.GoalTypes.GOAL_ARTIFACTS:
 		goal.goal_constraints.assign(slot_data["goal_game_optional_constraints"])
 		goal.goal_game = slot_data["goal_game"]
 		goal.goal_objective = slot_data["goal_trial_game_objective"]
@@ -170,10 +170,15 @@ func init_goal(slot_data: Dictionary) -> void:
 		goal_trial.objective = goal.goal_objective
 		goal_trial.loc_id = data.get_loc_id(trial_name)
 		goal.area.trials[trial_name] = goal_trial
-	else:
+	elif goal.goal_type == goal.GoalTypes.GOAL_KEY_HEIST:
 		goal.required_keys = slot_data["magic_keys_required"]
 		goal.available_keys = slot_data["magic_keys_total"]
 		goal.received_keys = 0
+	elif goal.goal_type == goal.GoalTypes.GOAL_MEDALLIONS:
+		goal.required_medallions = slot_data["conquest_medallions_required"]
+		goal.available_medallions = len(slot_data["area_trials"])
+		goal.received_medallions = 0
+		pass
 	
 
 # Print all keys, marking received ones
@@ -203,18 +208,20 @@ func kmk_after_refresh_items(item_list: Array[NetworkItem]):
 			var item_name:String = data.get_item_name(item.id)
 			if item_name == "Artifact of Resolve":
 				goal.add_artifact()
+			elif item_name == "Conquest Medallion":
+				goal.add_medallion()
 			elif item_name == "Unlock: The Keymaster's Challenge Chamber":
 				goal.unlock()
 			elif item_name == "Completed: Keymaster's Keep Challenge":
 				goal.complete()
-			elif item_name.contains("Key"):
-				if item_name in selected_keys:
-					received_keys.append(item_name)
-					goal.add_key()
 			elif item_name.contains("Unlock"):
 				for area_name in available_areas.keys():
 					if item_name == "Unlock: " + area_name:
 						available_areas[area_name].player_unlocked = true
+			elif item_name.contains("Key"):
+				if item_name in selected_keys:
+					received_keys.append(item_name)
+					goal.add_key()
 			elif item_name in RELIC_NAMES:
 				received_relics.append(item_name)
 		

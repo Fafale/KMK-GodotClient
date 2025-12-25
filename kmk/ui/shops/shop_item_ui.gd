@@ -15,12 +15,12 @@ func update_button(loc: KMKShopLocation) -> void:
 		if loc.sent:
 			bt_purchase.disabled = true
 			bt_purchase.text = "Purchased!"
-			print("[bt from %s] -> purchased" % related_loc_name)
+			#print("[bt from %s] -> purchased" % related_loc_name)
 		else:
 			bt_purchase.disabled = false
 			bt_purchase.text = "Purchase"
-			print("[bt from %s] -> purchase" % related_loc_name)
+			#print("[bt from %s] -> purchase" % related_loc_name)
 	else:
 		bt_purchase.disabled = true
 		bt_purchase.text = "Need Relic"
-		print("[bt from %s] -> need relic" % related_loc_name)
+		#print("[bt from %s] -> need relic" % related_loc_name)

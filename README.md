@@ -1,5 +1,5 @@
 # Godot Client for Keymaster's Keep
-This project is a Godot Client implementation for [Keymaster's Keep](https://github.com/silasary/Archipelago/releases/tag/keymasters-2.0.1), a bingo-style game for [Archipelago](https://archipelago.gg/).
+This project is a Godot Client implementation for [Keymaster's Keep v2.1.0](https://github.com/silasary/Archipelago/releases/tag/keymasters_keep-2.1.0), a bingo-style game for [Archipelago](https://archipelago.gg/).
 
 It uses the [GodotAP v0.4.0](https://github.com/EmilyV99/GodotAP) library to handle connection between client and server.
 
@@ -14,9 +14,9 @@ If you find any bug or have any suggestion, you can either create an Issue here 
 ## What is already implemented:
 - Reconnecting to the server after an accidental disconnection (Such as internet failing)
 - Unlocking areas, sending objectives from trials. (Including game medleys)
-- Goaling for both goal types (Keymaster's Challenge and Magic Key Heist)
-- Items you receive will be handled accordingly, but you won't have a chat/log to notify you that you've received them
-- Shop locations (including info about the purchasable item)
+- Goaling for all goal types (Keymaster's Challenge, Magic Key Heist and Area Domination)
+- Shop locations + hints
+- **Items you receive will be handled accordingly, but you won't have a chat/log to notify you that you've received them**
 
 ## What is NOT implemented yet:
 - Server chat, including sent/received items and hints.

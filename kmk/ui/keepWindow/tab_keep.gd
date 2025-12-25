@@ -1,5 +1,10 @@
 extends Control
 
+enum bt_func {
+	UNLOCK = 0,
+	GOAL = 1
+}
+
 @onready var area_preload = preload("res://kmk/ui/keepWindow/keep_area_ui.tscn")
 
 @onready var list = $Scroll/List
@@ -131,7 +136,7 @@ func set_goal_info(goal: KMKGoal) -> void:
 	label_goal.append_text("[b][font_size=16]Goal[/font_size][/b][br]")
 	label_goal.append_text("[font_size=14]")
 	
-	if goal.goal_type == 0:
+	if goal.goal_type == KMKGoal.GoalTypes.GOAL_ARTIFACTS:
 		label_goal.append_text("[b]Keymaster's Challenge[/b][br]")
 		label_goal.append_text("Retrieve Artifacts of Resolve to unlock the Keymaster's Challenge Chamber and beat the ultimate challenge![br]")
 		
@@ -142,16 +147,25 @@ func set_goal_info(goal: KMKGoal) -> void:
 			bt_goal.text = "Challenge Chamber Unlocked!"
 		else:
 			bt_goal.text = "Unlock Challenge Chamber"
-	else:
+		button_function = bt_func.UNLOCK
+	elif goal.goal_type == KMKGoal.GoalTypes.GOAL_KEY_HEIST:
 		label_goal.append_text("[b]Magic Key Heist[/b][br]")
 		label_goal.append_text("Retrieve Magic Keys throughout the Keymaster's Keep and escape![br]")
 		
-		label_goal.append_text("[b]Artifacts of Resolve[/b][br]")
+		label_goal.append_text("[b]Magic Keys[/b][br]")
 		label_goal.append_text("Retrieved [color=medium_sea_green]%d[/color] of [color=medium_sea_green]%d[/color] needed ([color=darkgray]%d total[/color])" % [goal.received_keys, goal.required_keys, goal.available_keys])
 		
 		bt_goal.text = "Claim Victory!"
-	
-	button_function = goal.goal_type
+		button_function = bt_func.GOAL
+	elif goal.goal_type == KMKGoal.GoalTypes.GOAL_MEDALLIONS:
+		label_goal.append_text("[b]Area Domination[/b][br]")
+		label_goal.append_text("Retrieve Conquest Medallions by completing areas and escape![br]")
+		
+		label_goal.append_text("[b]Conquest Medallions[/b][br]")
+		label_goal.append_text("Retrieved [color=medium_sea_green]%d[/color] of [color=medium_sea_green]%d[/color] needed ([color=darkgray]%d total[/color])" % [goal.received_medallions, goal.required_medallions, goal.available_medallions])
+		
+		bt_goal.text = "Claim Victory!"
+		button_function = bt_func.GOAL
 	
 	goal.verify()
 	var bt_enable = goal.button_enabled and not goal.goal_unlocked
@@ -160,9 +174,9 @@ func set_goal_info(goal: KMKGoal) -> void:
 
 func _on_bt_goal_pressed() -> void:
 	if Archipelago.is_ap_connected():
-		if button_function == 0:
+		if button_function == bt_func.UNLOCK:
 			var data = Archipelago.conn.get_gamedata_for_player()
 			var loc_id = data.get_loc_id(GOAL_UNLOCK_ITEM_NAME)
 			Archipelago.send_command("LocationChecks", {"locations": [loc_id]})
-		elif button_function == 1:
+		elif button_function == bt_func.GOAL:
 			Archipelago.set_client_status(AP.ClientStatus.CLIENT_GOAL)

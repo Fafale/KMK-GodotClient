@@ -32,7 +32,7 @@ func keep_create_areas(areas: Dictionary[String, KMKArea], keys: Array[String], 
 	tab_keep.set_sidebar_info(slot_data)
 	tab_keep.set_goal_info(goal)
 	tab_available.create_areas(areas)
-	tab_shop.create_areas(areas)
+	tab_shop.create_areas(areas, slot_data["shop_hints"])
 
 func keep_update_areas(areas: Dictionary[String, KMKArea], keys: Array[String], goal: KMKGoal) -> void:
 	tab_keep.update_areas(areas, keys)
